@@ -1,7 +1,8 @@
 // clients/_template/page.tsx
-// Kopier til clients/[slug]/page.tsx og endre config-importen
+// Kopier til clients/[slug]/page.tsx og fjern kommentarer
 
 import { config } from "./config"
+import NavBar from "@/components/templates/NavBar"
 import HeroSection from "@/components/templates/HeroSection"
 import ServicesSection from "@/components/templates/ServicesSection"
 import TrustSection from "@/components/templates/TrustSection"
@@ -10,7 +11,7 @@ import SiteFooter from "@/components/templates/SiteFooter"
 
 export default function ClientPage() {
   return (
-    <main
+    <div
       style={
         {
           "--primary": config.primærfarge,
@@ -19,11 +20,14 @@ export default function ClientPage() {
       }
       className={config.theme === "dark" ? "dark" : ""}
     >
-      <HeroSection config={config} />
-      <ServicesSection config={config} />
-      <TrustSection config={config} />
-      <ContactSection config={config} />
+      <NavBar config={config} />
+      <main>
+        <HeroSection config={config} />
+        <ServicesSection config={config} />
+        <TrustSection config={config} />
+        <ContactSection config={config} />
+      </main>
       <SiteFooter config={config} />
-    </main>
+    </div>
   )
 }

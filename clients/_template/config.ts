@@ -3,44 +3,76 @@
 
 export const config = {
   // --- Grunninfo ---
-  slug: "bedrift-slug",                // URL: attentio-utkast.vercel.app/bedrift-slug
+  slug: "bedrift-slug",
   firmanavn: "Bedrift AS",
   tagline: "Kort og tydelig verdisetning",
-  bransje: "local service",            // Brukes i UI/UX-skill-søk (engelsk)
+  underoverskrift: "Kort setning som utdyper – nevner sted og hva du løser for kunden.",
+  bransje: "local service",
 
   // --- Kontakt ---
   telefon: "55 00 00 00",
   epost: "post@bedrift.no",
   adresse: "Gateveien 1, 5000 Bergen",
-  sted: "Bergen",                      // Brukes i lokal SEO-tekst
+  sted: "Bergen",
+  apningstider: "Man–fre 07:00–16:00 · Døgnvakt 24/7",
 
   // --- Visuell identitet ---
-  theme: "light" as "light" | "dark", // light = håndverkere/lokalt, dark = tech/moderne
-  primærfarge: "#1a3a6b",             // Hex – brukes i Tailwind og CSS-variabel
-  accentfarge: "#e85c2b",
+  theme: "light" as "light" | "dark",
+  primærfarge: "#1E40AF",
+  accentfarge: "#EA580C",
 
-  // --- Innhold ---
+  // --- Tjenester (med ikon og beskrivelse) ---
   tjenester: [
-    "Tjeneste 1",
-    "Tjeneste 2",
-    "Tjeneste 3",
+    {
+      navn: "Tjeneste 1",
+      beskrivelse: "Kort beskrivelse av hva tjenesten inkluderer og for hvem.",
+      ikon: "wrench" as const,
+    },
+    {
+      navn: "Tjeneste 2",
+      beskrivelse: "Kort beskrivelse av hva tjenesten inkluderer og for hvem.",
+      ikon: "home" as const,
+    },
+    {
+      navn: "Tjeneste 3",
+      beskrivelse: "Kort beskrivelse av hva tjenesten inkluderer og for hvem.",
+      ikon: "shield" as const,
+    },
   ],
-  usps: [                              // Unike salgsargumenter (3 stk)
+
+  // --- USP-er (3 korte salgsargumenter) ---
+  usps: [
     "Rask respons",
     "Lokal kunnskap",
-    "Fastpris",
+    "Fastpris uten overraskelser",
+  ],
+
+  // --- Stats (vises i trust-seksjon) ---
+  stats: [
+    { verdi: "500+", etikett: "Fornøyde kunder" },
+    { verdi: "20 år", etikett: "Erfaring" },
+    { verdi: "4.9★", etikett: "Kundevurdering" },
+  ],
+
+  // --- Trust badges ---
+  trustBadges: [
+    "Mesterbrev",
+    "Sentral godkjenning",
+    "Forsikret hos Gjensidige",
   ],
 
   // --- Valgfritt ---
-  logo: "",                            // URL til logo (blank = bruk firmanavn som tekst)
-  herobildeSrc: "",                    // URL til bilde (blank = farge-bakgrunn)
+  logo: "",
+  herobildeSrc: "",
+
   anmeldelser: [
     {
       navn: "Ola Nordmann",
-      tekst: "Veldig fornøyd med jobben!",
+      tekst: "Veldig fornøyd med jobben – rask, ryddig og holdt prisen!",
       stjerner: 5,
+      rolle: "Privatkunde",
     },
   ],
 } as const
 
-export type Config = typeof config
+export type { Config } from "@/types/config"

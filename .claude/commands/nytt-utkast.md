@@ -1,62 +1,74 @@
 Du skal lage et nytt nettside-utkast for Attentio AS basert på informasjonen brukeren har gitt deg.
 
-## Jobb du skal gjøre
+## Obligatorisk workflow (ikke hopp over noen steg)
 
-**1. Tolk informasjonen**
+**STEG 1 — Kjør ui-ux-pro-max-søk FØRST**
 
-Les brukerens beskrivelse og utled følgende felt. Gjett fornuftige verdier for felt som mangler, basert på bransje og firmanavn:
+Før du rører noen filer, hent design-intelligens for bransjen:
 
-- `slug` — URL-vennlig, f.eks. `hansen-elektro` (kun lowercase, bindestrek)
-- `firmanavn` — f.eks. "Hansen Elektro AS"
-- `tagline` — Kort og tillitsvekkende setning (maks 8 ord), f.eks. "Din lokale elektriker i Bergen"
-- `bransje` — Engelskspråklig, f.eks. `electrician local service`
-- `telefon` — norsk format med mellomrom
-- `epost`
-- `adresse`
-- `sted` — By eller region, f.eks. "Bergen" eller "Sotra"
-- `theme` — `"light"` for håndverkere/lokal service, `"dark"` for tech/moderne
-- `primærfarge` — Hex-farge som passer bransjen (f.eks. #1a4a2e for elektriker)
-- `accentfarge` — Komplementærfarge
-- `tjenester` — 3 konkrete tjenester
-- `usps` — 3 unike salgsargumenter
-- `anmeldelser` — 2 realistiske, norske anmeldelser (finn på hvis ikke gitt)
-
-**2. Opprett filer**
-
-Kjør:
+```bash
+python3 /Users/erikjohnsen/.claude/skills/ui-ux-pro-max/scripts/search.py "[bransje] local service trust conversion" --design-system -p "[firmanavn]"
 ```
+
+Dette er ikke valgfritt. Bruk resultatene til å informere farge- og layoutvalg.
+
+**STEG 2 — Tolk brukerens informasjon**
+
+Utled følgende felt (gjett fornuftig hvis mangler):
+
+- `slug` — URL-vennlig, kun lowercase + bindestrek (f.eks. `hansen-elektro`)
+- `firmanavn` — f.eks. "Hansen Elektro AS"
+- `tagline` — Maks 8 ord, direkte og tillitsvekkende (f.eks. "Din lokale elektriker i Bergen")
+- `underoverskrift` — 1–2 setninger som utdyper verdiforslaget og nevner stedet
+- `bransje` — Engelsk (f.eks. `electrician local service`, `plumber`, `carpenter`)
+- `telefon`, `epost`, `adresse`, `sted`
+- `apningstider` — f.eks. "Man–fre 07:00–16:00 · Døgnvakt 24/7"
+- `theme` — `"light"` for håndverkere/lokalt, `"dark"` for tech
+- `primærfarge` / `accentfarge` — **Bruk anbefalingene fra ui-ux-pro-max-søket**. Ikke gjett.
+- `tjenester` — 3 stk, hver med `navn`, `beskrivelse` (1 setning), og `ikon` fra: `wrench | bolt | hammer | paint | home | shield | clock | star`
+- `usps` — 3 korte salgsargumenter
+- `stats` — 3 tall (f.eks. `{verdi: "500+", etikett: "Fornøyde kunder"}`)
+- `trustBadges` — 2–3 sertifiseringer/medlemskap relevant for bransjen (f.eks. "Mesterbrev", "Sentral godkjenning")
+- `anmeldelser` — 2 realistiske norske anmeldelser med `navn`, `tekst`, `stjerner`, `rolle`
+
+**STEG 3 — Opprett filene**
+
+```bash
 cp -r clients/_template clients/[slug]
 ```
 
 Skriv `clients/[slug]/config.ts` med de utledede verdiene.
 
-Skriv `clients/[slug]/page.tsx` — identisk med `clients/_template/page.tsx`, men uten kommentarlinjene øverst.
+Skriv `clients/[slug]/page.tsx` (fjern kommentarene fra template).
 
-**3. Legg til i dynamisk ruting**
+**STEG 4 — Legg til i dynamisk ruting**
 
-Åpne `src/app/[client]/page.tsx` og legg til klienten i `clients`-objektet:
+I `src/app/[client]/page.tsx`, legg til i `clients`-objektet:
 ```ts
 "[slug]": () => import("../../../clients/[slug]/page"),
 ```
 
-**4. Bygg og sjekk**
+**STEG 5 — Bygg og sjekk**
 
-Kjør `npm run build` og bekreft at `/[slug]` er med i bygget uten feil.
-
-**5. Commit og push**
-
+```bash
+npm run build
 ```
+
+Bekreft at `/[slug]` er i build-output uten feil. Hvis feil, fiks før push.
+
+**STEG 6 — Commit og push**
+
+```bash
 git add clients/[slug]/ src/app/[client]/page.tsx
 git commit -m "utkast: [slug]"
 git push
 ```
 
-**6. Rapporter tilbake**
+**STEG 7 — Rapporter tilbake (kort)**
 
-Gi en kort oppsummering:
 - Live URL: `attentio-nettside-utkast.vercel.app/[slug]`
-- Hvilke verdier som ble valgt (spesielt farge, tagline og tjenester)
-- Evt. felt du gjetta — så brukeren kan korrigere
+- Farger valgt (med kilde: fra ui-ux-pro-max eller justert)
+- Hva som ble gjettet — så brukeren kan korrigere
 
 ---
 

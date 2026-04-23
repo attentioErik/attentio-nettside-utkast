@@ -1,33 +1,84 @@
 import type { Config } from "@/types/config"
+import { PhoneIcon, CheckIcon, StarIcon, ArrowRightIcon } from "./Icons"
 
 export default function HeroSection({ config }: { config: Config }) {
   return (
-    <section className="min-h-[90vh] flex flex-col justify-center px-6 py-24 bg-white dark:bg-gray-900">
-      <div className="max-w-4xl mx-auto">
-        <p className="text-sm font-medium uppercase tracking-widest mb-4 text-[var(--primary)]">
-          {config.sted}
-        </p>
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-gray-900 dark:text-white">
-          {config.tagline}
-        </h1>
-        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl">
-          {config.firmanavn} hjelper deg med {config.tjenester.join(", ").toLowerCase()}.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <a
-            href={`tel:${config.telefon.replace(/\s/g, "")}`}
-            className="inline-flex items-center justify-center px-8 py-4 rounded-xl text-white font-semibold text-lg transition-all hover:opacity-90"
-            style={{ backgroundColor: "var(--primary)" }}
-          >
-            Ring oss: {config.telefon}
-          </a>
-          <a
-            href="#kontakt"
-            className="inline-flex items-center justify-center px-8 py-4 rounded-xl border-2 font-semibold text-lg transition-all hover:bg-gray-50 dark:hover:bg-gray-800"
-            style={{ borderColor: "var(--primary)", color: "var(--primary)" }}
-          >
-            Send en melding →
-          </a>
+    <section
+      id="top"
+      className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50"
+    >
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, var(--primary) 1px, transparent 0)",
+          backgroundSize: "32px 32px",
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-20 sm:pt-24 sm:pb-28">
+        <div className="max-w-3xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full bg-white border border-slate-200 shadow-sm">
+            <div className="flex -space-x-0.5" aria-hidden="true">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <StarIcon
+                  key={i}
+                  className="w-4 h-4"
+                  style={{ color: "var(--accent)" }}
+                />
+              ))}
+            </div>
+            <span className="text-xs sm:text-sm font-medium text-slate-700">
+              Lokalt forankret i {config.sted}
+            </span>
+          </div>
+
+          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-slate-900 mb-6">
+            {config.tagline}
+          </h1>
+
+          {config.underoverskrift && (
+            <p className="text-lg sm:text-xl text-slate-600 leading-relaxed mb-8 max-w-2xl">
+              {config.underoverskrift}
+            </p>
+          )}
+
+          <div className="flex flex-col sm:flex-row gap-3 mb-10">
+            <a
+              href={`tel:${config.telefon.replace(/\s/g, "")}`}
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-white font-semibold text-base transition-all hover:opacity-95 hover:-translate-y-0.5 shadow-md hover:shadow-lg"
+              style={{ backgroundColor: "var(--primary)" }}
+            >
+              <PhoneIcon className="w-5 h-5" />
+              <span>Ring {config.telefon}</span>
+            </a>
+            <a
+              href="#kontakt"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-white border-2 border-slate-200 text-slate-900 font-semibold text-base transition-all hover:border-slate-300 hover:-translate-y-0.5"
+            >
+              <span>Be om pristilbud</span>
+              <ArrowRightIcon className="w-5 h-5" />
+            </a>
+          </div>
+
+          <ul className="flex flex-wrap gap-x-6 gap-y-3">
+            {config.usps.map((usp, i) => (
+              <li
+                key={i}
+                className="inline-flex items-center gap-2 text-sm font-medium text-slate-700"
+              >
+                <span
+                  className="w-5 h-5 rounded-full flex items-center justify-center text-white flex-shrink-0"
+                  style={{ backgroundColor: "var(--primary)" }}
+                  aria-hidden="true"
+                >
+                  <CheckIcon className="w-3.5 h-3.5" />
+                </span>
+                {usp}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
