@@ -1,20 +1,17 @@
-"use client"
-
 import Image from "next/image"
+import { ArrowUpRight } from "lucide-react"
 import type { Config } from "@/types/config"
-import { ArrowRightIcon } from "./Icons"
 
 /**
- * HeroAero – inspirert av 21st.dev/cnippet_dev/aero-hero-3
- * Passer til store bedrifter innen miljø, fornybar energi, bærekraft, industri.
- * Full-bleed natur-/industri-bilde, stor sentrert serif-typografi,
- * subtile vertikale grid-linjer, rounded pill-CTA.
+ * HeroAero – full-bleed hero med 12-kolonners divider-grid, stort sentrert
+ * display-tittel og animert arrow-CTA. Passer til miljø, industri, bygg,
+ * premium tjenester som trenger kraftig visuelt uttrykk.
  */
 export default function HeroAero({ config }: { config: Config }) {
   return (
     <section
       id="top"
-      className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-slate-950 text-white"
+      className="relative flex h-screen min-h-[640px] w-full items-center justify-center overflow-hidden bg-slate-950"
     >
       {config.herobildeSrc && (
         <Image
@@ -27,67 +24,44 @@ export default function HeroAero({ config }: { config: Config }) {
         />
       )}
 
-      <div
-        className="absolute inset-0 z-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(2,6,23,0.45) 0%, rgba(2,6,23,0.35) 40%, rgba(2,6,23,0.55) 100%)",
-        }}
-        aria-hidden="true"
-      />
+      <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
 
-      <div
-        className="absolute inset-0 z-0 pointer-events-none opacity-25"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(255,255,255,0.14) 1px, transparent 1px)",
-          backgroundSize: "12.5% 100%",
-        }}
-        aria-hidden="true"
-      />
+      <div className="absolute inset-0 z-10 size-full pointer-events-none">
+        <div className="grid h-full w-full grid-cols-12 divide-x divide-white/20">
+          <div className="col-span-1" />
+          <div className="col-span-3" />
+          <div className="col-span-4" />
+          <div className="col-span-3" />
+          <div className="col-span-1" />
+        </div>
+      </div>
 
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 py-28 text-center">
-        <span className="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-medium tracking-wider uppercase">
-          <span
-            className="w-1.5 h-1.5 rounded-full animate-pulse"
-            style={{ backgroundColor: "var(--accent)" }}
-            aria-hidden="true"
-          />
-          {config.sted} · {config.firmanavn}
-        </span>
-
-        <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal leading-[1.02] tracking-[-0.02em] mb-7 max-w-4xl mx-auto text-white">
+      <div className="relative z-20 max-w-5xl px-6 text-center text-white">
+        <h1 className="font-heading text-center text-5xl font-normal leading-[1.04] tracking-tight text-white md:text-6xl lg:text-8xl">
           {config.tagline}
         </h1>
 
         {config.underoverskrift && (
-          <p className="text-base sm:text-lg text-white/80 leading-relaxed mb-10 max-w-xl mx-auto">
+          <p className="mx-auto mt-6 mb-10 max-w-2xl text-center text-lg font-light text-white/90 md:text-xl">
             {config.underoverskrift}
           </p>
         )}
 
         <a
           href="#kontakt"
-          className="group inline-flex items-center gap-2 pl-5 pr-3 py-2.5 rounded-full bg-white text-slate-900 font-medium text-sm transition-all hover:bg-white/90 hover:-translate-y-0.5 shadow-xl"
+          className="group mx-auto flex w-fit cursor-pointer items-center justify-center gap-0"
         >
-          <span>Start et prosjekt</span>
           <span
-            className="w-7 h-7 rounded-full flex items-center justify-center text-white transition-transform group-hover:translate-x-0.5"
-            style={{ backgroundColor: "var(--primary)" }}
+            className="rounded-full bg-[var(--primary)] px-6 py-3 text-sm font-medium text-slate-950 duration-500 ease-in-out group-hover:bg-slate-900 group-hover:text-[var(--primary)] group-hover:transition-colors"
           >
-            <ArrowRightIcon className="w-4 h-4" />
+            Start et prosjekt
           </span>
+          <div className="relative flex h-fit items-center overflow-hidden rounded-full bg-[var(--primary)] p-5 text-slate-950 duration-500 ease-in-out group-hover:bg-slate-900 group-hover:text-[var(--primary)] group-hover:transition-colors">
+            <ArrowUpRight className="absolute h-5 w-5 -translate-x-1/2 transition-all duration-500 ease-in-out group-hover:translate-x-10" />
+            <ArrowUpRight className="absolute h-5 w-5 -translate-x-10 transition-all duration-500 ease-in-out group-hover:-translate-x-1/2" />
+          </div>
         </a>
       </div>
-
-      <div
-        className="absolute bottom-0 left-0 right-0 h-32 z-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(180deg, transparent 0%, rgba(2,6,23,0.7) 100%)",
-        }}
-        aria-hidden="true"
-      />
     </section>
   )
 }

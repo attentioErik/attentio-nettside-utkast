@@ -9,6 +9,7 @@ import HeroShapes from "@/components/templates/HeroShapes"
 import HeroParallax from "@/components/templates/HeroParallax"
 import HeroGlass from "@/components/templates/HeroGlass"
 import HeroCarousel from "@/components/templates/HeroCarousel"
+import HeroShader from "@/components/templates/HeroShader"
 import type { Config } from "@/types/config"
 
 const baseDemo: Config = {
@@ -83,6 +84,7 @@ const varianter: { navn: string; beskriv: string; C: HeroComp; overrides?: Parti
   { navn: "glass", beskriv: "Premium glassmorphism stats-kort med progress-bar. Byråer, studioer.", C: HeroGlass, overrides: agencyDemo },
   { navn: "carousel", beskriv: "3D auto-roterende bildekarusell. Portfolio, fotografer, reiseliv.", C: HeroCarousel },
   { navn: "parallax", beskriv: "Parallax clip-path zoom på scroll. Eiendom, reise, arkitektur. (Scroll for å se effekten)", C: HeroParallax },
+  { navn: "shader", beskriv: "Animert MeshGradient-shader bakgrunn, glass-badge, bottom-left-layout. Byråer, studioer, kreative merker.", C: HeroShader, overrides: agencyDemo },
 ]
 
 export default function HeroVarianterPage() {

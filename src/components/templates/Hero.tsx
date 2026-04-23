@@ -10,6 +10,7 @@ import HeroShapes from "./HeroShapes"
 import HeroParallax from "./HeroParallax"
 import HeroGlass from "./HeroGlass"
 import HeroCarousel from "./HeroCarousel"
+import HeroShader from "./HeroShader"
 
 /**
  * Hero-router. Velger hero-variant basert på config.heroVariant.
@@ -40,6 +41,8 @@ export default function Hero({ config }: { config: Config }) {
       return <HeroGlass config={config} />
     case "carousel":
       return <HeroCarousel config={config} />
+    case "shader":
+      return <HeroShader config={config} />
     case "classic":
     default:
       return <HeroSection config={config} />

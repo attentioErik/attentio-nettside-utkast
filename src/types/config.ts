@@ -12,6 +12,7 @@ export type HeroVariant =
   | "parallax"     // Visuell: parallax scroll clip-path zoom (eiendom, reise, arkitektur)
   | "glass"        // Premium: glassmorphism stats-kort med progress-bar (byråer, studioer)
   | "carousel"     // Visuell: 3D auto-roterende bildekarusell (portfolio, fotografer)
+  | "shader"       // Animert: MeshGradient-shader bakgrunn, glass-badge, bottom-left-layout (byråer, kreative merker)
 
 export interface Config {
   slug: string

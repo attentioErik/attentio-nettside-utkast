@@ -32,6 +32,36 @@ Begge modi kan kombineres med **alle 21st.dev / MagicUI-komponenter** som er ins
 
 ---
 
+## Hero-varianter (`config.heroVariant`)
+
+Live preview av alle varianter: **[`/hero-varianter`](http://localhost:3000/hero-varianter)** (kjør `npm run dev`).
+
+Beskriv stemningen du vil ha – Claude velger riktig variant basert på tabellen.
+
+| `heroVariant` | Stemning / passer til | Nøkkelord å be om |
+|---|---|---|
+| `classic` | Trust-modus default – gradient bakgrunn + stjernebadge + dobbel CTA | "enkel", "tillitsvekkende", "håndverker-standard" |
+| `image` | Full-bleed hero-bilde med gradient-overlay | "stort bilde", "foto-dominert" |
+| `aurora` | Partikler + meteorer + aurora-gradient tekst + sparkles (dark) | "wow-faktor", "magisk", "gnister", "flammer" |
+| `retrogrid` | Synthwave retro grid, sentrert (dark) | "retro", "synthwave", "80-tall" |
+| `flicker` | Flickerende prikkegrid i brand-farge (light) | "teknisk", "levende mønster" |
+| `aero` | 12-kolonners divider-grid + stort sentrert display + animert arrow-CTA | "bygg", "industri", "miljø", "kraftig uttrykk" |
+| `aero2` | Venstre-justert serif + avatar-stats + rotating-arrow CTA | "enterprise", "avatar-social-proof" |
+| `shapes` | Elegante floating gradient-shapes (dark) | "kreativt", "byrå", "abstrakt" |
+| `glass` | Glassmorphism stats-kort + progress-bar | "premium", "studio", "glass-look" |
+| `carousel` | 3D auto-roterende bildekarusell | "portfolio", "fotograf", "karusell" |
+| `parallax` | Parallax clip-path zoom på scroll | "eiendom", "arkitektur", "reise" |
+| `shader` | Animert MeshGradient-shader + glass-badge + bottom-left-layout | "shader", "animert bakgrunn", "levende", "uten foto" |
+
+Hvordan velge:
+1. Beskriv stemningen ("jeg vil ha shader-bakgrunn", "noe med flammer", "stort bilde med grid-linjer")
+2. Se `/hero-varianter` for live preview mens du utvikler
+3. Claude setter `heroVariant: "..."` i `config.ts`
+
+Alle hero-varianter bruker `config.primærfarge` + `config.accentfarge` automatisk via CSS-variabler.
+
+---
+
 ## Nytt utkast – én kommando
 
 ```
@@ -69,6 +99,7 @@ Claude:
 - `animated-gradient-text` – animert gradient-badge
 - `number-ticker` – animert stat-telling
 - `shine-border` – border med shine-effekt
+- `hero-shader` – MeshGradient-bakgrunn (driver `shader`-hero)
 
 Hent flere:
 ```bash
