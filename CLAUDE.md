@@ -5,14 +5,23 @@ Attentio AS er et norsk digitalbyrå i Bergen. Dette repoet brukes til å lage r
 
 ---
 
-## Nytt utkast – steg for steg
+## Nytt utkast – én kommando
+
+Skriv i Claude Code-terminalen:
+
+```
+/nytt-utkast Hansen Elektro AS, tlf 55 33 22 11, epost post@hansen-elektro.no, Bergen
+```
+
+Claude tolker informasjonen, oppretter alle filer, bygger og pusher automatisk.
+Live URL er klar på ca. 30 sekunder etter push.
+
+### Manuelt (om nødvendig)
 
 1. `cp -r clients/_template clients/[slug]`
 2. Fyll ut `clients/[slug]/config.ts` med bedriftens info
-3. Tilpass komponenter i `clients/[slug]/page.tsx` om nødvendig
-4. Legg til klienten i `src/app/[client]/page.tsx` sin clients-liste
-5. `git add . && git commit -m "utkast: [slug]" && git push`
-6. Vercel deployer automatisk – live URL klar på ca. 30 sekunder
+3. Legg til klienten i `src/app/[client]/page.tsx` sin clients-liste
+4. `git add . && git commit -m "utkast: [slug]" && git push`
 
 ---
 
