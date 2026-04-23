@@ -7,6 +7,11 @@ export type HeroVariant =
   | "retrogrid"    // Wow: synthwave retro grid (dark, centered)
   | "flicker"      // Wow: flickerende prikkegrid (light, venstre-justert)
   | "aero"         // Enterprise: stor serif sentrert over natur-/industri-bilde (miljø, fornybar, industri)
+  | "aero2"        // Enterprise: venstre-justert serif + avatar-stats + fancy rotating-arrow CTA
+  | "shapes"       // Kreativ: elegante floating gradient-shapes (dark, byråer, designfirma)
+  | "parallax"     // Visuell: parallax scroll clip-path zoom (eiendom, reise, arkitektur)
+  | "glass"        // Premium: glassmorphism stats-kort med progress-bar (byråer, studioer)
+  | "carousel"     // Visuell: 3D auto-roterende bildekarusell (portfolio, fotografer)
 
 export interface Config {
   slug: string

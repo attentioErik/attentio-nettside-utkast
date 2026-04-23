@@ -5,6 +5,11 @@ import HeroAurora from "./HeroAurora"
 import HeroRetroGrid from "./HeroRetroGrid"
 import HeroFlickerGrid from "./HeroFlickerGrid"
 import HeroAero from "./HeroAero"
+import HeroAero2 from "./HeroAero2"
+import HeroShapes from "./HeroShapes"
+import HeroParallax from "./HeroParallax"
+import HeroGlass from "./HeroGlass"
+import HeroCarousel from "./HeroCarousel"
 
 /**
  * Hero-router. Velger hero-variant basert på config.heroVariant.
@@ -25,6 +30,16 @@ export default function Hero({ config }: { config: Config }) {
       return <HeroFlickerGrid config={config} />
     case "aero":
       return <HeroAero config={config} />
+    case "aero2":
+      return <HeroAero2 config={config} />
+    case "shapes":
+      return <HeroShapes config={config} />
+    case "parallax":
+      return <HeroParallax config={config} />
+    case "glass":
+      return <HeroGlass config={config} />
+    case "carousel":
+      return <HeroCarousel config={config} />
     case "classic":
     default:
       return <HeroSection config={config} />
