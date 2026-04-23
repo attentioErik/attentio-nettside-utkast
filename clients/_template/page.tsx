@@ -3,8 +3,7 @@
 
 import { config } from "./config"
 import NavBar from "@/components/templates/NavBar"
-import HeroSection from "@/components/templates/HeroSection"
-import WowHeroSection from "@/components/templates/WowHeroSection"
+import Hero from "@/components/templates/Hero"
 import ServicesSection from "@/components/templates/ServicesSection"
 import GallerySection from "@/components/templates/GallerySection"
 import TrustSection from "@/components/templates/TrustSection"
@@ -12,8 +11,6 @@ import ContactSection from "@/components/templates/ContactSection"
 import SiteFooter from "@/components/templates/SiteFooter"
 
 export default function ClientPage() {
-  const Hero = config.designMode === "wow" ? WowHeroSection : HeroSection
-
   return (
     <div
       style={

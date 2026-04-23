@@ -13,6 +13,7 @@ export const config = {
 
   theme: "light" as "light" | "dark",
   designMode: "wow" as "trust" | "wow",
+  heroVariant: "aurora" as "classic" | "image" | "aurora" | "retrogrid" | "flicker",
   primærfarge: "#EC4899",
   accentfarge: "#8B5CF6",
 

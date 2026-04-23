@@ -1,5 +1,12 @@
 export type DesignMode = "trust" | "wow"
 
+export type HeroVariant =
+  | "classic"      // Trust-modus, gradient bakgrunn
+  | "image"        // Wow: full-bleed hero-bilde + gradient overlay
+  | "aurora"       // Wow: partikler + meteorer + aurora text + sparkles (dark)
+  | "retrogrid"    // Wow: synthwave retro grid (dark, centered)
+  | "flicker"      // Wow: flickerende prikkegrid (light, venstre-justert)
+
 export interface Config {
   slug: string
   firmanavn: string
@@ -15,6 +22,7 @@ export interface Config {
 
   theme: "light" | "dark"
   designMode?: DesignMode
+  heroVariant?: HeroVariant
   primærfarge: string
   accentfarge: string
 
