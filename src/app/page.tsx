@@ -8,14 +8,15 @@ import { config as amMurBetong } from "../../clients/am-mur-betong/config"
 import { config as itreet } from "../../clients/itreet/config"
 
 import { ArrowRightIcon, MapPinIcon } from "@/components/templates/Icons"
+import type { Config } from "@/types/config"
 
-const klienter = [
+const klienter: Config[] = [
   straumeRoer,
   lumiereBeauty,
   nordvindEnergi,
   amMurBetong,
   itreet,
-] as const
+]
 
 export const metadata = {
   title: "Attentio – Nettside-utkast",
