@@ -14,7 +14,7 @@ export const config = {
 
   theme: "dark" as "light" | "dark",
   designMode: "trust" as "trust" | "wow",
-  heroVariant: "aero" as const,
+  heroVariant: "aurora" as const,
   primærfarge: "#F59E0B",
   accentfarge: "#EA580C",
 
@@ -24,24 +24,18 @@ export const config = {
       beskrivelse:
         "Vi bytter ut gamle ovner med moderne, rentbrennende ildsteder. Mer varme ut av hver vedkubbe – bedre for miljøet og lommeboka.",
       ikon: "home" as const,
-      bilde:
-        "https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&w=1200&q=80",
     },
     {
       navn: "Piperehabilitering",
       beskrivelse:
         "Komplett piperehab med foring, tetting og brannsikring. Trygg fyring i mange tiår framover – utført av kvalifiserte fagfolk.",
       ikon: "shield" as const,
-      bilde:
-        "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=80",
     },
     {
       navn: "Betong & mur",
       beskrivelse:
         "Fundamenter, støttemurer, såler for hus og garasje, etasjeskille og rå betongkonstruksjoner. Solid grunnarbeid som varer.",
       ikon: "hammer" as const,
-      bilde:
-        "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1200&q=80",
     },
   ],
 
