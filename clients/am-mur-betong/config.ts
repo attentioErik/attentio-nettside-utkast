@@ -3,13 +3,13 @@ export const config = {
   firmanavn: "AM Mur og Betong AS",
   tagline: "Solid håndverk. Varme hjem.",
   underoverskrift:
-    "Fra betongfundament til moderne ildsteder – vi leverer mur, peis og pipe med faglig stolthet, miljøvennlige løsninger og ærlige priser.",
+    "Fra betongfundament til moderne ildsteder – vi betjener hele Oslo-området med mur, peis og pipe. Faglig stolthet, miljøvennlige løsninger og ærlige priser.",
   bransje: "masonry concrete fireplace",
 
   telefon: "480 02 108",
   epost: "post@am-murogbetong.no",
-  adresse: "Bergen",
-  sted: "Bergen",
+  adresse: "Oslo",
+  sted: "Oslo og omegn",
   apningstider: "Man–fre 07:00–16:00",
 
   theme: "dark" as "light" | "dark",
@@ -68,14 +68,14 @@ export const config = {
       tekst:
         "Alan og gjengen rehabiliterte pipen og monterte ny peis. Ryddig arbeid, holdt tidsplanen og en veldig god pris. Anbefales!",
       stjerner: 5,
-      rolle: "Privatkunde, Åsane",
+      rolle: "Privatkunde, Grorud",
     },
     {
       navn: "Ingrid Bakken",
       tekst:
         "Vi brukte AM Mur og Betong til støttemur og garasje-såle. Solid håndverk, god dialog underveis og alt ble levert som avtalt.",
       stjerner: 5,
-      rolle: "Privatkunde, Fana",
+      rolle: "Privatkunde, Bærum",
     },
   ],
 } as const
