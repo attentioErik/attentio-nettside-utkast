@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Rubik, Nunito_Sans } from "next/font/google";
+import { Rubik, Nunito_Sans, Geist } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const rubik = Rubik({
   variable: "--font-heading",
@@ -29,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="nb"
-      className={`${rubik.variable} ${nunitoSans.variable} h-full antialiased`}
+      className={cn("h-full", "antialiased", rubik.variable, nunitoSans.variable, "font-sans", geist.variable)}
     >
       <body className="min-h-full flex flex-col font-body text-slate-800 bg-white">
         {children}

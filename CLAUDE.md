@@ -5,22 +5,30 @@ Attentio AS er et norsk digitalbyrå i Bergen. Dette repoet brukes til å lage r
 
 ---
 
-## OBLIGATORISK: Bruk `/ui-ux-pro-max` FØR du designer noe
+## OBLIGATORISK: Kjør `ui-ux-pro-max` FØRST
 
-Dette er ikke valgfritt. Før du lager eller redesigner et utkast, **må** du hente design-intelligens fra ui-ux-pro-max-skillet. Det er Attentio-standarden.
+Før du lager eller redesigner et utkast, **må** du hente design-intelligens fra ui-ux-pro-max-skillet:
 
 ```bash
 python3 /Users/erikjohnsen/.claude/skills/ui-ux-pro-max/scripts/search.py "[bransje] local service trust conversion" --design-system -p "[firmanavn]"
 ```
 
-Suppler med domene-søk etter behov:
-```bash
-python3 /Users/erikjohnsen/.claude/skills/ui-ux-pro-max/scripts/search.py "[bransje] landing conversion" --domain landing
-python3 /Users/erikjohnsen/.claude/skills/ui-ux-pro-max/scripts/search.py "[bransje] service" --domain color
-python3 /Users/erikjohnsen/.claude/skills/ui-ux-pro-max/scripts/search.py "[bransje] trust" --domain typography
-```
-
 Bruk resultatene direkte. **Ikke gjett farger, fonter eller layout.**
+
+---
+
+## To design-modi
+
+Velg basert på bransje og brukerens ønsker:
+
+| Modus | `designMode` | Passer til | Kjennetegn |
+|---|---|---|---|
+| **Trust** | `"trust"` | Rørlegger, elektriker, advokat, eiendomsmegler, tekniske tjenester | Tillitsvekkende navy-blå, solid stats-rad, kontaktform, sobert footer |
+| **Wow** | `"wow"` | Skjønnhet, restaurant, hotell, premium merker, kreative tjenester | Full-bleed hero-bilde, animert gradient, bento galleri, slankere fargepalett |
+
+Hvis brukeren ber om "wow-faktor", "visuelt slående", "premium" el., bruk `"wow"`.
+
+Begge modi kan kombineres med **alle 21st.dev / MagicUI-komponenter** som er installert (`src/components/ui/`). Hent flere via `npx shadcn@latest add <url>`.
 
 ---
 
@@ -30,47 +38,80 @@ Bruk resultatene direkte. **Ikke gjett farger, fonter eller layout.**
 /nytt-utkast Hansen Elektro AS, tlf 55 33 22 11, epost post@hansen-elektro.no, Bergen
 ```
 
-Claude kjører `ui-ux-pro-max` først, tolker informasjonen, oppretter filer, bygger og pusher automatisk. Live URL er klar på ca. 30 sekunder etter push.
-
-### Manuelt (om nødvendig)
-
-1. Kjør `ui-ux-pro-max`-søk for bransjen
-2. `cp -r clients/_template clients/[slug]`
-3. Fyll ut `clients/[slug]/config.ts`
-4. Legg til klienten i `src/app/[client]/page.tsx` sin clients-liste
-5. `git add . && git commit -m "utkast: [slug]" && git push`
+Claude:
+1. Kjører `ui-ux-pro-max --design-system` for bransjen
+2. Velger `"trust"` eller `"wow"` basert på bransje/ord
+3. Plukker bilder fra `src/lib/images.ts` (eller søker Unsplash)
+4. Installerer ekstra 21st.dev-komponenter ved behov
+5. Oppretter filer, bygger, committer, pusher
 
 ---
 
-## Designsystem (Trust & Authority + Conversion)
+## Installerte komponenter
 
-Hentet fra `ui-ux-pro-max --design-system` for lokal service-bransje:
+### Delte templates (`src/components/templates/`)
+- `NavBar` – sticky, logo + nav + tlf-CTA, hamburger på mobil
+- `HeroSection` – trust-modus hero (gradient bakgrunn, dual CTA)
+- `WowHeroSection` – full-bleed hero-bilde med animert gradient-badge
+- `ServicesSection` – 3 kort, SVG-ikon ELLER bilde + beskrivelse
+- `GallerySection` – bento-grid galleri (kun med `config.galleri`)
+- `TrustSection` – stats, anmeldelser, trust badges
+- `ContactSection` – kontaktkort + skjema
+- `SiteFooter` – 3-kolonne
+- `Icons.tsx` – 15 SVG-ikoner (ingen emoji)
 
-- **Pattern:** Trust & Authority + Conversion
-- **Sections:** 1. Hero m/credibility → 2. Proof (logoer, sertifiseringer, stats) → 3. Solution overview → 4. Clear CTA path
-- **Farger (defaults):** Primær `#1E40AF` (trust-blå), Aksent `#EA580C` (konvertering-oransje)
-- **Typografi:** Rubik (headings) + Nunito Sans (body)
-- **Layout:** Sticky navbar, max-width 6xl (1152px), 4/8pt spacing-system
-- **Effekter:** 150–300ms transisjoner, hover-løft (-translate-y-0.5), subtle shadows
+### shadcn/ui base (`src/components/ui/`)
+- `button`, `card`, `badge`, `input`, `textarea`, `label`
 
-### Komponenter som alltid skal med
-1. `NavBar` (sticky, logo + navigasjon + tlf-CTA, hamburger på mobil)
-2. `HeroSection` (trust-badge, tagline, underoverskrift, dual CTA, USP-liste)
-3. `ServicesSection` (3 tjenestekort med SVG-ikon + beskrivelse)
-4. `TrustSection` (stats-rad, anmeldelser med stjerner, trust badges)
-5. `ContactSection` (tlf/e-post/adresse/åpningstider + kontaktskjema)
-6. `SiteFooter` (3-kolonne: om, tjenester, kontakt)
+### 21st.dev / MagicUI (wow-modus)
+- `marquee` – scrolle-effekt for logoer/tekst
+- `bento-grid` – asymmetriske grid-kort
+- `animated-gradient-text` – animert gradient-badge
+- `number-ticker` – animert stat-telling
+- `shine-border` – border med shine-effekt
+
+Hent flere:
+```bash
+npx shadcn@latest add "https://magicui.design/r/[komponent]"
+npx shadcn@latest add "https://21st.dev/r/[bruker]/[komponent]"
+```
 
 ---
 
-## Theme-valg
+## Bildebibliotek
 
-| Bransje | Theme | Begrunnelse |
-|---|---|---|
-| Rørlegger, elektriker, tømrer, maler | `light` | Tillitsvekkende, trygt, tradisjonelt |
-| Restaurant, hotell, butikk | `light` | Oversiktlig, mat-vennlig |
-| Tech, SaaS, moderne firma | `dark` | Profesjonelt, moderne |
-| Wellness, spa, terapi | `light` | Rolig, rent |
+Kuratert Unsplash-bibliotek i `src/lib/images.ts`. Dekker:
+- plumber, electrician, carpenter, painter, roofer
+- restaurant, cafe, beauty, hairdresser, wellness, fitness
+- realtor, lawyer, tech, cleaning, gardener
+
+Norske synonymer matches automatisk (rørlegger → plumber, frisør → hairdresser, osv.).
+
+```ts
+import { plukkBilder } from "@/lib/images"
+const bilder = plukkBilder("plumber", 3)
+// { hero, services: [...], galleri? }
+```
+
+Fallback for ukjent bransje: `genericHero(query)` bruker Unsplash Source.
+
+Remote-mønstre er whitelisted i `next.config.ts`: `images.unsplash.com`, `source.unsplash.com`, `images.pexels.com`, `cdn.pixabay.com`.
+
+---
+
+## Designsystem (defaults)
+
+### Trust & Authority (lokal service)
+- Primær: `#1E40AF` (trust-blå), Aksent: `#EA580C` (oransje)
+- Typografi: Rubik + Nunito Sans
+- Pattern: Hero m/credibility → Proof → Solutions → CTA
+
+### Soft UI Evolution (skjønnhet/wellness)
+- Primær: `#EC4899` (rosa), Aksent: `#8B5CF6` (lavendel)
+- Typografi: Lora + Raleway (valgfritt – Rubik/Nunito Sans fungerer også)
+- Pattern: Hero-Centric + Social Proof
+
+Kjør `ui-ux-pro-max` for din spesifikke bransje for å få riktige farger.
 
 ---
 
@@ -80,21 +121,21 @@ Hentet fra `ui-ux-pro-max --design-system` for lokal service-bransje:
 - Alltid lokalt forankret: nevn sted, region eller "Bergen-basert"
 - Unngå: "ledende", "best i klassen", "innovativ", "banebrytende"
 - Bruk: konkrete tjenester, telefonnummer synlig, fastpris/uforpliktende
-- Hero skal alltid ha: overskrift + underoverskrift + CTA-knapp + telefonnummer + trust-signal
 
 ---
 
 ## Kodekonvensjoner
 
-- Stack: Next.js App Router + TypeScript + Tailwind CSS v4
+- Stack: Next.js App Router + TypeScript + Tailwind CSS v4 + shadcn/ui
 - Delte komponenter: `src/components/templates/`
+- Shadcn / 21st.dev-komponenter: `src/components/ui/`
 - Bedriftsdata: alltid i `clients/[slug]/config.ts`
 - Tilpass alltid via config – ikke hardkod tekst i komponenter
-- Ikoner: SVG fra `src/components/templates/Icons.tsx`. **Aldri emoji som ikon.**
+- Ikoner: SVG fra `Icons.tsx` eller lucide-react. **Aldri emoji.**
+- Bilder: `next/image` med URL fra `lib/images.ts`
 - Mobilvisning prioriteres (test alltid ved 375px)
-- Touch-targets min 44×44px
-- Kontrast ≥ 4.5:1 på kroppstekst
-- CSS-fargevariabler: `--primary` og `--accent` settes i page.tsx fra config
+- Touch-targets min 44×44px, kontrast ≥ 4.5:1
+- CSS-variabler: `--primary` og `--accent` settes på `page.tsx`-root fra config
 
 ---
 

@@ -12,6 +12,7 @@ export const config = {
   apningstider: "Man–fre 07:00–16:00 · Døgnvakt 24/7",
 
   theme: "light" as "light" | "dark",
+  designMode: "trust" as "trust" | "wow",
   primærfarge: "#1E40AF",
   accentfarge: "#EA580C",
 
@@ -52,7 +53,7 @@ export const config = {
   ],
 
   logo: "",
-  herobildeSrc: "",
+  herobildeSrc: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1600&q=80",
 
   anmeldelser: [
     {

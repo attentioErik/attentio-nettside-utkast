@@ -3,8 +3,7 @@ import { notFound } from "next/navigation"
 // Importer alle klient-configs her etter hvert som de legges til
 const clients: Record<string, () => Promise<{ default: React.ComponentType }>> = {
   "straume-roer": () => import("../../../clients/straume-roer/page"),
-  // "norsk-skadekontroll": () => import("../../../clients/norsk-skadekontroll/page"),
-  // "elektro-hansen": () => import("../../../clients/elektro-hansen/page"),
+  "lumiere-beauty": () => import("../../../clients/lumiere-beauty/page"),
 }
 
 export default async function ClientRoute({

@@ -1,74 +1,95 @@
-Du skal lage et nytt nettside-utkast for Attentio AS basert på informasjonen brukeren har gitt deg.
+Du skal lage et nytt nettside-utkast for Attentio AS basert på brukerens input.
 
-## Obligatorisk workflow (ikke hopp over noen steg)
+## Obligatorisk workflow
 
-**STEG 1 — Kjør ui-ux-pro-max-søk FØRST**
+**STEG 1 — Velg design-modus**
 
-Før du rører noen filer, hent design-intelligens for bransjen:
+Les brukerens ønsker og bransjen, og velg:
+- `designMode: "trust"` → håndverkere, advokater, tekniske tjenester, hvor tillit er viktigst
+- `designMode: "wow"` → skjønnhet, restaurant, hotell, premium merker, kreative tjenester, eller hvis brukeren eksplisitt ber om "wow-faktor", "visuelt slående", "premium"
+
+**STEG 2 — Kjør ui-ux-pro-max-søk**
 
 ```bash
-python3 /Users/erikjohnsen/.claude/skills/ui-ux-pro-max/scripts/search.py "[bransje] local service trust conversion" --design-system -p "[firmanavn]"
+python3 /Users/erikjohnsen/.claude/skills/ui-ux-pro-max/scripts/search.py "[bransje engelsk] [wow eller trust]" --design-system -p "[firmanavn]"
 ```
 
-Dette er ikke valgfritt. Bruk resultatene til å informere farge- og layoutvalg.
+Bruk farger og typografi fra resultatet. **Ikke gjett.**
 
-**STEG 2 — Tolk brukerens informasjon**
+**STEG 3 — Velg bilder fra `src/lib/images.ts`**
 
-Utled følgende felt (gjett fornuftig hvis mangler):
+Finn bransjen i `bildebibliotek` (eller norsk synonym som rørlegger/frisør/osv). Plukk:
+- `herobildeSrc` — første hero-bilde
+- `tjenester[i].bilde` — matchende service-bilder (KUN for wow-modus eller hvis brukeren vil ha bilder på tjenester)
+- `galleri` — 4–6 bilder (kun wow-modus)
 
-- `slug` — URL-vennlig, kun lowercase + bindestrek (f.eks. `hansen-elektro`)
-- `firmanavn` — f.eks. "Hansen Elektro AS"
-- `tagline` — Maks 8 ord, direkte og tillitsvekkende (f.eks. "Din lokale elektriker i Bergen")
-- `underoverskrift` — 1–2 setninger som utdyper verdiforslaget og nevner stedet
-- `bransje` — Engelsk (f.eks. `electrician local service`, `plumber`, `carpenter`)
-- `telefon`, `epost`, `adresse`, `sted`
-- `apningstider` — f.eks. "Man–fre 07:00–16:00 · Døgnvakt 24/7"
-- `theme` — `"light"` for håndverkere/lokalt, `"dark"` for tech
-- `primærfarge` / `accentfarge` — **Bruk anbefalingene fra ui-ux-pro-max-søket**. Ikke gjett.
-- `tjenester` — 3 stk, hver med `navn`, `beskrivelse` (1 setning), og `ikon` fra: `wrench | bolt | hammer | paint | home | shield | clock | star`
-- `usps` — 3 korte salgsargumenter
-- `stats` — 3 tall (f.eks. `{verdi: "500+", etikett: "Fornøyde kunder"}`)
-- `trustBadges` — 2–3 sertifiseringer/medlemskap relevant for bransjen (f.eks. "Mesterbrev", "Sentral godkjenning")
-- `anmeldelser` — 2 realistiske norske anmeldelser med `navn`, `tekst`, `stjerner`, `rolle`
+Hvis bransjen ikke finnes, søk Unsplash direkte med en passende query, eller la Claude gjette en URL-ID basert på bildebeskrivelser.
 
-**STEG 3 — Opprett filene**
+**STEG 4 — Installer ekstra 21st.dev-komponenter om nødvendig**
+
+For wow-modus, sjekk om noe spesielt trengs. Allerede installert:
+- `marquee`, `bento-grid`, `animated-gradient-text`, `number-ticker`, `shine-border`
+- `button`, `card`, `badge`, `input`, `textarea`, `label`
+
+Hent flere om nødvendig:
+```bash
+npx shadcn@latest add "https://magicui.design/r/[komponent]" -y
+```
+
+**STEG 5 — Tolk brukerens info og fyll ut config**
+
+Utled (gjett fornuftig hvis mangler):
+- `slug`, `firmanavn`, `tagline` (maks 8 ord), `underoverskrift` (1–2 setninger)
+- `bransje` (engelsk — brukes i skill-søk)
+- `telefon`, `epost`, `adresse`, `sted`, `apningstider`
+- `theme` (`"light"` eller `"dark"`)
+- `designMode` (`"trust"` eller `"wow"`)
+- `primærfarge` / `accentfarge` — **fra ui-ux-pro-max-resultatet**
+- `tjenester` — 3 stk med `navn`, `beskrivelse`, `ikon` (wrench/bolt/hammer/paint/home/shield/clock/star), og `bilde` (for wow-modus)
+- `usps` — 3 korte
+- `stats` — 3 tall + etiketter
+- `trustBadges` — 2–3 relevante sertifiseringer
+- `herobildeSrc`, `galleri` — fra `src/lib/images.ts`
+- `anmeldelser` — 2 realistiske norske
+
+**STEG 6 — Opprett filer**
 
 ```bash
 cp -r clients/_template clients/[slug]
 ```
 
-Skriv `clients/[slug]/config.ts` med de utledede verdiene.
+Skriv `clients/[slug]/config.ts` og `clients/[slug]/page.tsx` (fjern kommentarene fra template).
 
-Skriv `clients/[slug]/page.tsx` (fjern kommentarene fra template).
+**STEG 7 — Legg til i dynamisk ruting**
 
-**STEG 4 — Legg til i dynamisk ruting**
-
-I `src/app/[client]/page.tsx`, legg til i `clients`-objektet:
+I `src/app/[client]/page.tsx`:
 ```ts
 "[slug]": () => import("../../../clients/[slug]/page"),
 ```
 
-**STEG 5 — Bygg og sjekk**
+**STEG 8 — Bygg og verifiser**
 
 ```bash
 npm run build
 ```
 
-Bekreft at `/[slug]` er i build-output uten feil. Hvis feil, fiks før push.
+Må passere TypeScript og generere `/[slug]` uten feil.
 
-**STEG 6 — Commit og push**
+**STEG 9 — Commit og push**
 
 ```bash
-git add clients/[slug]/ src/app/[client]/page.tsx
+git add -A
 git commit -m "utkast: [slug]"
 git push
 ```
 
-**STEG 7 — Rapporter tilbake (kort)**
+**STEG 10 — Rapporter tilbake**
 
 - Live URL: `attentio-nettside-utkast.vercel.app/[slug]`
-- Farger valgt (med kilde: fra ui-ux-pro-max eller justert)
-- Hva som ble gjettet — så brukeren kan korrigere
+- Design-modus valgt (trust / wow) med begrunnelse
+- Farger og pattern fra ui-ux-pro-max
+- Bilder valgt (fra biblioteket eller Unsplash direkte)
+- Hva som ble gjettet – så brukeren kan korrigere
 
 ---
 

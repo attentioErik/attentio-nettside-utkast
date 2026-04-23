@@ -18,6 +18,7 @@ export const config = {
 
   // --- Visuell identitet ---
   theme: "light" as "light" | "dark",
+  designMode: "trust" as "trust" | "wow",   // "trust" = lokal service, "wow" = skjønnhet/premium
   primærfarge: "#1E40AF",
   accentfarge: "#EA580C",
 
@@ -63,7 +64,8 @@ export const config = {
 
   // --- Valgfritt ---
   logo: "",
-  herobildeSrc: "",
+  herobildeSrc: "",  // URL (f.eks. fra src/lib/images.ts) eller blank
+  galleri: [] as readonly string[],  // Valgfritt – fylles ut i "wow"-modus
 
   anmeldelser: [
     {

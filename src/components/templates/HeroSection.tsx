@@ -1,7 +1,10 @@
+import Image from "next/image"
 import type { Config } from "@/types/config"
 import { PhoneIcon, CheckIcon, StarIcon, ArrowRightIcon } from "./Icons"
 
 export default function HeroSection({ config }: { config: Config }) {
+  const harBilde = Boolean(config.herobildeSrc)
+
   return (
     <section
       id="top"
@@ -17,8 +20,12 @@ export default function HeroSection({ config }: { config: Config }) {
         aria-hidden="true"
       />
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-20 sm:pt-24 sm:pb-28">
-        <div className="max-w-3xl">
+      <div
+        className={`relative max-w-6xl mx-auto px-4 sm:px-6 pt-14 pb-20 sm:pt-20 sm:pb-28 ${
+          harBilde ? "grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-14 items-center" : ""
+        }`}
+      >
+        <div className={harBilde ? "" : "max-w-3xl"}>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full bg-white border border-slate-200 shadow-sm">
             <div className="flex -space-x-0.5" aria-hidden="true">
               {Array.from({ length: 5 }).map((_, i) => (
@@ -80,6 +87,27 @@ export default function HeroSection({ config }: { config: Config }) {
             ))}
           </ul>
         </div>
+
+        {harBilde && (
+          <div className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden shadow-2xl">
+            <Image
+              src={config.herobildeSrc}
+              alt={`${config.firmanavn} – ${config.tagline}`}
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(135deg, color-mix(in srgb, var(--primary) 25%, transparent) 0%, transparent 50%)",
+              }}
+              aria-hidden="true"
+            />
+          </div>
+        )}
       </div>
     </section>
   )

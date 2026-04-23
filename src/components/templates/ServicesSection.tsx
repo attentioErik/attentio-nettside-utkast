@@ -1,7 +1,10 @@
+import Image from "next/image"
 import type { Config } from "@/types/config"
 import { tjenesteIcons, WrenchIcon } from "./Icons"
 
 export default function ServicesSection({ config }: { config: Config }) {
+  const harBilder = config.tjenester.some((t) => t.bilde)
+
   return (
     <section id="tjenester" className="py-20 sm:py-28 px-4 sm:px-6 bg-white">
       <div className="max-w-6xl mx-auto">
@@ -28,23 +31,39 @@ export default function ServicesSection({ config }: { config: Config }) {
             return (
               <article
                 key={i}
-                className="group relative p-7 rounded-2xl bg-white border border-slate-200 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:border-slate-300"
+                className="group relative overflow-hidden rounded-2xl bg-white border border-slate-200 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:border-slate-300"
               >
-                <div
-                  className="w-12 h-12 rounded-xl mb-5 flex items-center justify-center transition-transform duration-200 group-hover:scale-110"
-                  style={{
-                    backgroundColor: "color-mix(in srgb, var(--primary) 10%, white)",
-                    color: "var(--primary)",
-                  }}
-                >
-                  <Icon className="w-6 h-6" />
+                {harBilder && tjeneste.bilde && (
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={tjeneste.bilde}
+                      alt={tjeneste.navn}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                )}
+                <div className="p-7">
+                  {!tjeneste.bilde && (
+                    <div
+                      className="w-12 h-12 rounded-xl mb-5 flex items-center justify-center transition-transform duration-200 group-hover:scale-110"
+                      style={{
+                        backgroundColor:
+                          "color-mix(in srgb, var(--primary) 10%, white)",
+                        color: "var(--primary)",
+                      }}
+                    >
+                      <Icon className="w-6 h-6" />
+                    </div>
+                  )}
+                  <h3 className="font-heading text-lg font-semibold text-slate-900 mb-2">
+                    {tjeneste.navn}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed text-[15px]">
+                    {tjeneste.beskrivelse}
+                  </p>
                 </div>
-                <h3 className="font-heading text-lg font-semibold text-slate-900 mb-2">
-                  {tjeneste.navn}
-                </h3>
-                <p className="text-slate-600 leading-relaxed text-[15px]">
-                  {tjeneste.beskrivelse}
-                </p>
               </article>
             )
           })}
