@@ -59,7 +59,7 @@ export const config = {
 
   logo: "",
   herobildeSrc:
-    "https://ucarecdn.com/582c018c-78e0-4867-9193-04e065ef61df/carwithconcretemixerandmechanicalsleevefor20260107052953utc.jpg",
+    "https://ucarecdn.com/944cc996-5bbc-4095-8bb6-ed9a914f841b/workingathome20260316050624utc.jpg",
   galleri: [] as readonly string[],
 
   anmeldelser: [
