@@ -258,6 +258,26 @@ Ellers blir de hverken gated eller tilgjengelige.
 
 ---
 
+## Fjerne et utkast
+
+**Fra landingssiden** (kun i dev-mode):
+1. Kjør `npm run dev` lokalt
+2. Hover over kortet — rødt søppelbøtte-ikon øverst til høyre
+3. Klikk → bekreftelsesdialog
+4. Skriv slug nøyaktig for å bekrefte (GitHub-stil type-guard)
+5. Klikk "Fjern prosjekt"
+
+`POST /api/remove-client` gjør følgende:
+1. Sletter `clients/[slug]/`-mappen
+2. Fjerner entry fra `src/app/[client]/page.tsx`
+3. Fjerner import + registry-entry fra `src/lib/clients.ts`
+4. Fjerner import + array-entry fra `src/app/page.tsx`
+5. `git add -A && git commit -m "fjern: [slug]" && git push`
+
+Alt er reversibelt via `git revert <commit>`. Endepunktet er gated til `NODE_ENV === "development"`, så knappen fungerer aldri i prod-miljøet på Vercel.
+
+---
+
 ## Deploy
 
 Vercel er allerede koblet til GitHub-repoet. Push til `main` = ny deploy.
