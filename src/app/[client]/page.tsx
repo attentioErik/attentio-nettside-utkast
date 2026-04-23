@@ -6,6 +6,7 @@ const clients: Record<string, () => Promise<{ default: React.ComponentType }>> =
   "lumiere-beauty": () => import("../../../clients/lumiere-beauty/page"),
   "nordvind-energi": () => import("../../../clients/nordvind-energi/page"),
   "am-mur-betong": () => import("../../../clients/am-mur-betong/page"),
+  "itreet": () => import("../../../clients/itreet/page"),
 }
 
 export default async function ClientRoute({
