@@ -36,14 +36,28 @@ export default function Home() {
               Attentio
             </span>
           </div>
-          <a
-            href="https://www.attentio.no"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
-          >
-            attentio.no →
-          </a>
+          <nav className="flex items-center gap-5 text-sm font-medium">
+            <Link
+              href="/docs"
+              className="text-slate-600 hover:text-slate-900 transition-colors"
+            >
+              Kunnskapsbase
+            </Link>
+            <Link
+              href="/hero-varianter"
+              className="text-slate-600 hover:text-slate-900 transition-colors hidden sm:inline"
+            >
+              Hero-varianter
+            </Link>
+            <a
+              href="https://www.attentio.no"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-600 hover:text-slate-900 transition-colors"
+            >
+              attentio.no →
+            </a>
+          </nav>
         </div>
       </header>
 
