@@ -1,0 +1,89 @@
+export const config = {
+  slug: "am-mur-betong",
+  firmanavn: "AM Mur og Betong AS",
+  tagline: "Solid håndverk. Varme hjem.",
+  underoverskrift:
+    "Fra betongfundament til moderne ildsteder – vi leverer mur, peis og pipe med faglig stolthet, miljøvennlige løsninger og ærlige priser.",
+  bransje: "masonry concrete fireplace",
+
+  telefon: "480 02 108",
+  epost: "post@am-murogbetong.no",
+  adresse: "Bergen",
+  sted: "Bergen",
+  apningstider: "Man–fre 07:00–16:00",
+
+  theme: "dark" as "light" | "dark",
+  designMode: "trust" as "trust" | "wow",
+  heroVariant: "aero" as const,
+  primærfarge: "#F59E0B",
+  accentfarge: "#EA580C",
+
+  tjenester: [
+    {
+      navn: "Peis & ildstedsrehabilitering",
+      beskrivelse:
+        "Vi bytter ut gamle ovner med moderne, rentbrennende ildsteder. Mer varme ut av hver vedkubbe – bedre for miljøet og lommeboka.",
+      ikon: "home" as const,
+      bilde:
+        "https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      navn: "Piperehabilitering",
+      beskrivelse:
+        "Komplett piperehab med foring, tetting og brannsikring. Trygg fyring i mange tiår framover – utført av kvalifiserte fagfolk.",
+      ikon: "shield" as const,
+      bilde:
+        "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=80",
+    },
+    {
+      navn: "Betong & mur",
+      beskrivelse:
+        "Fundamenter, støttemurer, såler for hus og garasje, etasjeskille og rå betongkonstruksjoner. Solid grunnarbeid som varer.",
+      ikon: "hammer" as const,
+      bilde:
+        "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1200&q=80",
+    },
+  ],
+
+  usps: [
+    "Norges beste priser på peisinstallasjon",
+    "Miljøvennlig og rentbrennende fyring",
+    "Trygg fagkunnskap – to selskap, én løsning",
+  ],
+
+  stats: [
+    { verdi: "4.9★", etikett: "Snitt fra 200 kunder" },
+    { verdi: "200+", etikett: "Fullførte oppdrag" },
+    { verdi: "2", etikett: "Fagselskap under samme tak" },
+  ],
+
+  trustBadges: [
+    "Sentral godkjenning",
+    "Kvalifisert ildstedsmontør",
+    "AM Peis & Pipe AS",
+  ],
+
+  logo: "",
+  herobildeSrc:
+    "https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&w=1920&q=80",
+  galleri: [] as readonly string[],
+
+  anmeldelser: [
+    {
+      navn: "Tor Helge Nilsen",
+      tekst:
+        "Alan og gjengen rehabiliterte pipen og monterte ny peis. Ryddig arbeid, holdt tidsplanen og en veldig god pris. Anbefales!",
+      stjerner: 5,
+      rolle: "Privatkunde, Åsane",
+    },
+    {
+      navn: "Ingrid Bakken",
+      tekst:
+        "Vi brukte AM Mur og Betong til støttemur og garasje-såle. Solid håndverk, god dialog underveis og alt ble levert som avtalt.",
+      stjerner: 5,
+      rolle: "Privatkunde, Fana",
+    },
+  ],
+} as const
+
+export type { Config } from "@/types/config"

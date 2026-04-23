@@ -6,6 +6,7 @@
 import { config as straumeRoer } from "../../clients/straume-roer/config"
 import { config as lumiereBeauty } from "../../clients/lumiere-beauty/config"
 import { config as nordvindEnergi } from "../../clients/nordvind-energi/config"
+import { config as amMurBetong } from "../../clients/am-mur-betong/config"
 
 type ClientEntry = {
   slug: string
@@ -17,6 +18,7 @@ const registry: readonly { slug: string; firmanavn: string; passord?: string }[]
   straumeRoer,
   lumiereBeauty,
   nordvindEnergi,
+  amMurBetong,
 ] as const
 
 export const CLIENTS: readonly ClientEntry[] = registry.map((c) => ({
