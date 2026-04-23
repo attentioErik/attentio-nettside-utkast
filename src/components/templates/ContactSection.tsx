@@ -1,4 +1,4 @@
-import type { Config } from "../../../clients/_template/config"
+import type { Config } from "@/types/config"
 
 export default function ContactSection({ config }: { config: Config }) {
   return (
