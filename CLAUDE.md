@@ -139,6 +139,23 @@ Kjør `ui-ux-pro-max` for din spesifikke bransje for å få riktige farger.
 
 ---
 
+## Passordbeskyttelse
+
+Alle klient-utkast er automatisk passordbeskyttet via `src/middleware.ts`.
+
+- **Standard passord:** `[slug]_26` (f.eks. `straume-roer_26`, `lumiere-beauty_26`)
+- Kan overstyres per klient via `passord`-feltet i config
+- Første besøk → redirect til `/unlock/[slug]` → skriv inn passord → cookie settes → redirect til utkast
+- Cookie varer i 30 dager
+- **Nye klienter må registreres i `src/lib/clients.ts`** — ellers blir de ikke gated (og ikke tilgjengelige via middleware)
+
+Flyten:
+1. `src/middleware.ts` sjekker cookie for hver `/[slug]`-request
+2. `/unlock/[slug]/page.tsx` viser Attentio-branding + passordform
+3. `POST /api/unlock` validerer passord og setter httpOnly-cookie
+
+---
+
 ## Commit-konvensjon
 
 ```

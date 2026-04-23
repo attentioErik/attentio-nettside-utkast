@@ -60,12 +60,21 @@ cp -r clients/_template clients/[slug]
 
 Skriv `clients/[slug]/config.ts` og `clients/[slug]/page.tsx` (fjern kommentarene fra template).
 
-**STEG 7 — Legg til i dynamisk ruting**
+**STEG 7 — Legg til i dynamisk ruting OG passord-register**
 
 I `src/app/[client]/page.tsx`:
 ```ts
 "[slug]": () => import("../../../clients/[slug]/page"),
 ```
+
+I `src/lib/clients.ts` (VIKTIG – uten dette er siden ikke passordbeskyttet):
+```ts
+import { config as [slugCamel] } from "../../clients/[slug]/config"
+// ...
+const registry = [..., [slugCamel]] as const
+```
+
+Passord settes automatisk til `[slug]_26` med mindre `config.passord` er satt.
 
 **STEG 8 — Bygg og verifiser**
 
@@ -86,7 +95,9 @@ git push
 **STEG 10 — Rapporter tilbake**
 
 - Live URL: `attentio-nettside-utkast.vercel.app/[slug]`
+- **Passord:** `[slug]_26` (må deles med kunden)
 - Design-modus valgt (trust / wow) med begrunnelse
+- Hero-variant valgt
 - Farger og pattern fra ui-ux-pro-max
 - Bilder valgt (fra biblioteket eller Unsplash direkte)
 - Hva som ble gjettet – så brukeren kan korrigere

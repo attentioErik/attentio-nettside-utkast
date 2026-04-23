@@ -26,6 +26,9 @@ export interface Config {
   sted: string
   apningstider?: string
 
+  /** Passord for å se utkastet. Default: `${slug}_26`. */
+  passord?: string
+
   theme: "light" | "dark"
   designMode?: DesignMode
   heroVariant?: HeroVariant
