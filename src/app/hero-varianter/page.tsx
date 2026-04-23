@@ -3,6 +3,7 @@ import WowHeroSection from "@/components/templates/WowHeroSection"
 import HeroAurora from "@/components/templates/HeroAurora"
 import HeroRetroGrid from "@/components/templates/HeroRetroGrid"
 import HeroFlickerGrid from "@/components/templates/HeroFlickerGrid"
+import HeroAero from "@/components/templates/HeroAero"
 import type { Config } from "@/types/config"
 
 const demoConfig: Config = {
@@ -32,6 +33,7 @@ const varianter = [
   { navn: "aurora", beskriv: "Interaktive partikler + meteorer + animert aurora-tekst + sparkles.", C: HeroAurora },
   { navn: "retrogrid", beskriv: "Synthwave retro grid, sentrert layout.", C: HeroRetroGrid },
   { navn: "flicker", beskriv: "Flickerende prikkegrid i brand-farge på hvit bakgrunn.", C: HeroFlickerGrid },
+  { navn: "aero", beskriv: "Enterprise serif over natur-/industri-bilde. Miljø, fornybar energi, industri.", C: HeroAero },
 ]
 
 export default function HeroVarianterPage() {
@@ -50,7 +52,23 @@ export default function HeroVarianterPage() {
               <p className="text-sm text-slate-600">{beskriv}</p>
             </div>
           </div>
-          <C config={{ ...demoConfig, heroVariant: navn as Config["heroVariant"] }} />
+          <C
+            config={{
+              ...demoConfig,
+              heroVariant: navn as Config["heroVariant"],
+              ...(navn === "aero"
+                ? {
+                    tagline: "Bærekraftige løsninger for en bedre fremtid",
+                    underoverskrift:
+                      "Vi hjelper bedrifter og lokalsamfunn å blomstre i en lavkarbon-verden gjennom skreddersydde løsninger innen fornybar energi.",
+                    primærfarge: "#84cc16",
+                    accentfarge: "#a3e635",
+                    herobildeSrc:
+                      "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1920&q=80",
+                  }
+                : {}),
+            }}
+          />
         </section>
       ))}
     </div>

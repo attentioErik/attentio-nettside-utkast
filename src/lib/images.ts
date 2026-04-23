@@ -208,6 +208,49 @@ export const bildebibliotek: Record<string, BildeSett> = {
     ],
     services: [u("1416879595882-3373a0480b5b"), u("1500382017468-9049fed747ef")],
   },
+  energy: {
+    hero: [
+      u("1509391366360-2e959784a276"),      // offshore wind-turbiner
+      u("1466611653911-95081537e5b7"),      // solcellepanel
+      u("1548337138-e87d889cc369"),         // vindmølle-rekke
+      u("1473341304170-971dccb5ac1e"),      // energy grid
+    ],
+    services: [
+      u("1509391366360-2e959784a276"),
+      u("1466611653911-95081537e5b7"),
+      u("1548337138-e87d889cc369"),
+    ],
+    galleri: [
+      u("1509391366360-2e959784a276", 800),
+      u("1466611653911-95081537e5b7", 800),
+      u("1548337138-e87d889cc369", 800),
+      u("1473341304170-971dccb5ac1e", 800),
+    ],
+  },
+  environment: {
+    hero: [
+      u("1441974231531-c6227db76b6e"),      // skog
+      u("1497436072909-60f360e1d4b1"),      // natur-landskap
+      u("1470813740244-df37b8c1edcb"),      // stjernehimmel natur
+      u("1506905925346-21bda4d32df4"),      // fjell
+    ],
+    services: [
+      u("1441974231531-c6227db76b6e"),
+      u("1497436072909-60f360e1d4b1"),
+      u("1470813740244-df37b8c1edcb"),
+    ],
+  },
+  industrial: {
+    hero: [
+      u("1513828583688-c52646db42da"),      // industriell anlegg
+      u("1581094288338-2314dddb7ece"),      // fabrikk
+      u("1565043589221-1a6fd9ae45c7"),      // heavy industry
+    ],
+    services: [
+      u("1513828583688-c52646db42da"),
+      u("1581094288338-2314dddb7ece"),
+    ],
+  },
 }
 
 /**
@@ -244,6 +287,18 @@ export function bilderForBransje(bransje: string): BildeSett | null {
     renhold: "cleaning",
     gartner: "gardener",
     hage: "gardener",
+    energi: "energy",
+    fornybar: "energy",
+    kraft: "energy",
+    sol: "energy",
+    vind: "energy",
+    bærekraft: "environment",
+    miljø: "environment",
+    klima: "environment",
+    natur: "environment",
+    industri: "industrial",
+    fabrikk: "industrial",
+    powering: "energy",
   }
   for (const [no, en] of Object.entries(aliases)) {
     if (b.includes(no)) return bildebibliotek[en]

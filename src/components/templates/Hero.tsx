@@ -4,6 +4,7 @@ import WowHeroSection from "./WowHeroSection"
 import HeroAurora from "./HeroAurora"
 import HeroRetroGrid from "./HeroRetroGrid"
 import HeroFlickerGrid from "./HeroFlickerGrid"
+import HeroAero from "./HeroAero"
 
 /**
  * Hero-router. Velger hero-variant basert på config.heroVariant.
@@ -22,6 +23,8 @@ export default function Hero({ config }: { config: Config }) {
       return <HeroRetroGrid config={config} />
     case "flicker":
       return <HeroFlickerGrid config={config} />
+    case "aero":
+      return <HeroAero config={config} />
     case "classic":
     default:
       return <HeroSection config={config} />

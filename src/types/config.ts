@@ -6,6 +6,7 @@ export type HeroVariant =
   | "aurora"       // Wow: partikler + meteorer + aurora text + sparkles (dark)
   | "retrogrid"    // Wow: synthwave retro grid (dark, centered)
   | "flicker"      // Wow: flickerende prikkegrid (light, venstre-justert)
+  | "aero"         // Enterprise: stor serif sentrert over natur-/industri-bilde (miljø, fornybar, industri)
 
 export interface Config {
   slug: string
