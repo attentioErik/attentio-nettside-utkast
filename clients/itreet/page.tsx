@@ -1,11 +1,14 @@
 import Image from "next/image"
-import { config } from "./config"
+import type { Config } from "@/types/config"
+import { config as rawConfig } from "./config"
 import NavBar from "@/components/templates/NavBar"
 import Hero from "@/components/templates/Hero"
 import TrustSection from "@/components/templates/TrustSection"
 import ContactSection from "@/components/templates/ContactSection"
 import SiteFooter from "@/components/templates/SiteFooter"
 import { tjenesteIcons, WrenchIcon } from "@/components/templates/Icons"
+
+const config = rawConfig as Config
 
 export default function ItreetPage() {
   return (
@@ -14,6 +17,8 @@ export default function ItreetPage() {
         {
           "--primary": config.primærfarge,
           "--accent": config.accentfarge,
+          ...(config.fontHeading && { "--font-heading": config.fontHeading }),
+          ...(config.fontBody && { "--font-body": config.fontBody }),
         } as React.CSSProperties
       }
       className={config.theme === "dark" ? "dark" : ""}

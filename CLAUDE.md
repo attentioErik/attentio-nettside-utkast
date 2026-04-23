@@ -137,6 +137,44 @@ Remote-mønstre er whitelisted i `next.config.ts`: `images.unsplash.com`, `sourc
 
 ---
 
+## Fontbibliotek
+
+Alle fontene er lastet via `next/font/google` i [src/app/layout.tsx](src/app/layout.tsx) og eksponert som CSS-variabler + Tailwind-utilities i `globals.css`.
+
+**Default** (hele appen):
+- `--font-heading` → Rubik (display/overskrifter)
+- `--font-body` → Nunito Sans (brødtekst)
+- `--font-sans` → Geist (UI/systemfont)
+
+**Tilleggsfonter** (tilgjengelig som `font-inter`, `font-playfair`, osv.):
+
+| Tailwind-klasse | CSS-variabel | Font | Bruk |
+|---|---|---|---|
+| `font-inter` | `var(--font-inter)` | Inter | Moderne SaaS, tech, produkt-lansering |
+| `font-playfair` | `var(--font-playfair)` | Playfair Display | Luksus, advokat, eiendom, editorial |
+| `font-fraunces` | `var(--font-fraunces)` | Fraunces | Ekspressiv serif, restaurant, design |
+| `font-dm-sans` | `var(--font-dm-sans)` | DM Sans | Startup, ren og minimal |
+| `font-space` | `var(--font-space)` | Space Grotesk | Kreativt byrå, arkitekt, tech |
+| `font-instrument` | `var(--font-instrument)` | Instrument Serif | Redaksjonell display (italic er særlig slående) |
+| `font-manrope` | `var(--font-manrope)` | Manrope | Vennlig rund sans, wellness, coaching |
+| `font-lora` | `var(--font-lora)` | Lora | Varm serif for brødtekst, blogg, beauty |
+
+**Sette fonter per klient** (i `config.ts`):
+```ts
+fontHeading: "var(--font-playfair)",  // overrider --font-heading
+fontBody: "var(--font-lora)",         // overrider --font-body
+```
+
+Dette overstyrer CSS-variablene på klient-wrapperen i `ClientShell`, så alle templates som bruker `font-heading`/`font-body` får riktig font automatisk.
+
+**Bruk direkte i en template**:
+```tsx
+<h1 className="font-playfair italic">Editorial heading</h1>
+<p className="font-lora">Varm brødtekst</p>
+```
+
+---
+
 ## Designsystem (defaults)
 
 ### Trust & Authority (lokal service)

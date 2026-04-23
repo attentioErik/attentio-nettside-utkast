@@ -161,8 +161,68 @@ npm run dev          # http://localhost:3000`}</Pre>
             ["carousel", "Visuell portfolio", "Fotografer", "portfolio, karusell"],
             ["parallax", "Scroll-zoom", "Eiendom, reise", "eiendom, arkitektur"],
             ["shader", "Animert bakgrunn", "Kreative merker", "shader, animert"],
+            ["launch", "SaaS-lansering", "Tech, produkt", "produktbilde, blur-in, tailark"],
+            ["prisma", "Redaksjonell", "Kollektiv, foto/video", "magasin, stort display, asterisk"],
+            ["minimalist", "Minimalist portrett", "Portefølje, fashion", "sirkel, tre-kolonner"],
+            ["fashion", "Boutique", "Atelier, skjønnhet", "boutique, sesong-label"],
           ]}
         />
+      </>
+    ),
+  },
+  {
+    id: "fonter",
+    title: "Fontbibliotek",
+    body: (
+      <>
+        <p>
+          Alle fontene er lastet via <Code>next/font/google</Code> i{" "}
+          <Code>src/app/layout.tsx</Code> og eksponert som CSS-variabler +
+          Tailwind-utilities i <Code>globals.css</Code>.
+        </p>
+
+        <H3>Default-fonter (brukt i hele appen)</H3>
+        <Table
+          headers={["Rolle", "CSS-variabel", "Font"]}
+          rows={[
+            ["Overskrifter", <Code key="a">var(--font-heading)</Code>, "Rubik"],
+            ["Brødtekst", <Code key="b">var(--font-body)</Code>, "Nunito Sans"],
+            ["UI/system", <Code key="c">var(--font-sans)</Code>, "Geist"],
+          ]}
+        />
+
+        <H3>Tilleggsfonter</H3>
+        <p>
+          Tilgjengelig som både Tailwind-utility og CSS-variabel. Bruk f.eks.{" "}
+          <Code>className=&quot;font-playfair italic&quot;</Code> på en overskrift.
+        </p>
+        <Table
+          headers={["Tailwind-klasse", "Font", "Bruk"]}
+          rows={[
+            [<Code key="1">font-inter</Code>, "Inter", "Moderne SaaS, tech, produkt-lansering"],
+            [<Code key="2">font-playfair</Code>, "Playfair Display", "Luksus, advokat, eiendom, editorial"],
+            [<Code key="3">font-fraunces</Code>, "Fraunces", "Ekspressiv serif, restaurant, design"],
+            [<Code key="4">font-dm-sans</Code>, "DM Sans", "Startup, ren og minimal"],
+            [<Code key="5">font-space</Code>, "Space Grotesk", "Kreativt byrå, arkitekt, tech"],
+            [<Code key="6">font-instrument</Code>, "Instrument Serif", "Redaksjonell display (italic er særlig slående)"],
+            [<Code key="7">font-manrope</Code>, "Manrope", "Vennlig rund sans, wellness, coaching"],
+            [<Code key="8">font-lora</Code>, "Lora", "Varm serif for brødtekst, blogg, beauty"],
+          ]}
+        />
+
+        <H3>Sette fonter per klient (config.ts)</H3>
+        <Pre>{`fontHeading: "var(--font-playfair)",  // overrider --font-heading
+fontBody: "var(--font-lora)",         // overrider --font-body`}</Pre>
+        <p>
+          <Code>ClientShell</Code> applyer disse som CSS-variabel-override på
+          klient-wrapperen, så alle templates som bruker <Code>font-heading</Code>/
+          <Code>font-body</Code> får riktig font automatisk – ingen endring i
+          templates trengs.
+        </p>
+
+        <H3>Eller direkte i en template</H3>
+        <Pre>{`<h1 className="font-playfair italic">Editorial heading</h1>
+<p className="font-lora">Varm brødtekst</p>`}</Pre>
       </>
     ),
   },

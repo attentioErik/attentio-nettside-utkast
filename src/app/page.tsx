@@ -9,6 +9,9 @@ import { config as itreet } from "../../clients/itreet/config"
 
 import { ArrowRightIcon, MapPinIcon } from "@/components/templates/Icons"
 import type { Config } from "@/types/config"
+import RemoveButton from "./RemoveButton"
+
+const isDev = process.env.NODE_ENV === "development"
 
 const klienter: Config[] = [
   straumeRoer,
@@ -112,6 +115,9 @@ export default function Home() {
                   </span>
                   Live
                 </span>
+                {isDev && (
+                  <RemoveButton slug={k.slug} firmanavn={k.firmanavn} />
+                )}
               </div>
 
               <div className="flex-1 p-6 flex flex-col">

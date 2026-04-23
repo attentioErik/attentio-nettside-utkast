@@ -40,6 +40,11 @@ export interface Config {
   primærfarge: string
   accentfarge: string
 
+  /** Overstyrer `--font-heading` for denne klienten. F.eks. `"var(--font-playfair)"`. */
+  fontHeading?: string
+  /** Overstyrer `--font-body` for denne klienten. F.eks. `"var(--font-lora)"`. */
+  fontBody?: string
+
   tjenester: readonly {
     navn: string
     beskrivelse: string
