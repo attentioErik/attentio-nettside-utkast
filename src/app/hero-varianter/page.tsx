@@ -10,6 +10,10 @@ import HeroParallax from "@/components/templates/HeroParallax"
 import HeroGlass from "@/components/templates/HeroGlass"
 import HeroCarousel from "@/components/templates/HeroCarousel"
 import HeroShader from "@/components/templates/HeroShader"
+import HeroLaunch from "@/components/templates/HeroLaunch"
+import HeroPrisma from "@/components/templates/HeroPrisma"
+import HeroMinimalist from "@/components/templates/HeroMinimalist"
+import HeroFashion from "@/components/templates/HeroFashion"
 import type { Config } from "@/types/config"
 
 const baseDemo: Config = {
@@ -85,6 +89,10 @@ const varianter: { navn: string; beskriv: string; C: HeroComp; overrides?: Parti
   { navn: "carousel", beskriv: "3D auto-roterende bildekarusell. Portfolio, fotografer, reiseliv.", C: HeroCarousel },
   { navn: "parallax", beskriv: "Parallax clip-path zoom på scroll. Eiendom, reise, arkitektur. (Scroll for å se effekten)", C: HeroParallax },
   { navn: "shader", beskriv: "Animert MeshGradient-shader bakgrunn, glass-badge, bottom-left-layout. Byråer, studioer, kreative merker.", C: HeroShader, overrides: agencyDemo },
+  { navn: "launch", beskriv: "SaaS-stil: sentrert headline + blur-in reveal + produktbilde i glass-kort. Tech, produkt-lansering.", C: HeroLaunch },
+  { navn: "prisma", beskriv: "Redaksjonell: stort display over full-bleed bilde, asterisk, grain-overlay. Kollektiv, foto/video.", C: HeroPrisma },
+  { navn: "minimalist", beskriv: "Tre-kolonners minimalist: portrett i brand-farget sirkel + massive headline. Portefølje, fashion, arkitekt.", C: HeroMinimalist },
+  { navn: "fashion", beskriv: "To-kolonners boutique: portrett med glow + tjeneste-liste + sesong-label. Boutique, atelier, skjønnhet.", C: HeroFashion },
 ]
 
 export default function HeroVarianterPage() {

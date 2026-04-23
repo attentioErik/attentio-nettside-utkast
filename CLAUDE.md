@@ -52,6 +52,10 @@ Beskriv stemningen du vil ha – Claude velger riktig variant basert på tabelle
 | `carousel` | 3D auto-roterende bildekarusell | "portfolio", "fotograf", "karusell" |
 | `parallax` | Parallax clip-path zoom på scroll | "eiendom", "arkitektur", "reise" |
 | `shader` | Animert MeshGradient-shader + glass-badge + bottom-left-layout | "shader", "animert bakgrunn", "levende", "uten foto" |
+| `launch` | SaaS-stil – sentrert headline + blur-in reveal + produktbilde i glass-kort | "SaaS", "produkt-lansering", "tech", "app-screenshot" |
+| `prisma` | Redaksjonell – stort display over full-bleed bilde, asterisk, grain-overlay | "redaksjonell", "magasin", "kollektiv", "foto-studio" |
+| `minimalist` | Tre-kolonners minimalist – portrett i brand-farget sirkel + massive headline | "minimalistisk", "portefølje", "fashion", "arkitekt" |
+| `fashion` | To-kolonners boutique – portrett med glow + tjeneste-liste + sesong-label | "boutique", "fashion", "atelier", "skjønnhet" |
 
 Hvordan velge:
 1. Beskriv stemningen ("jeg vil ha shader-bakgrunn", "noe med flammer", "stort bilde med grid-linjer")
@@ -100,6 +104,9 @@ Claude:
 - `number-ticker` – animert stat-telling
 - `shine-border` – border med shine-effekt
 - `hero-shader` – MeshGradient-bakgrunn (driver `shader`-hero)
+- `animated-group` – stagger/blur-in reveal-wrapper (driver `launch`-hero)
+- `prisma-hero` – `WordsPullUp` + `WordsPullUpMultiStyle` primitiver
+- `minimalist-hero` – props-basert tre-kolonners hero (driver `minimalist`-hero)
 
 Hent flere:
 ```bash

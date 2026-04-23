@@ -13,6 +13,10 @@ export type HeroVariant =
   | "glass"        // Premium: glassmorphism stats-kort med progress-bar (byråer, studioer)
   | "carousel"     // Visuell: 3D auto-roterende bildekarusell (portfolio, fotografer)
   | "shader"       // Animert: MeshGradient-shader bakgrunn, glass-badge, bottom-left-layout (byråer, kreative merker)
+  | "launch"       // SaaS: sentrert headline + blur-in + produktskjerm i glass-kort (tech, produkt-lansering)
+  | "prisma"       // Redaksjonell: stort display over full-bleed bilde, asterisk, grain (kollektiv, foto/video)
+  | "minimalist"   // Portfolio: tre-kolonners, stort portrett i farget sirkel, massive headline (portefølje, fashion)
+  | "fashion"      // Boutique: to-kolonners grid, portrett med glow + tjeneste-liste + sesong-label (boutique, atelier)
 
 export interface Config {
   slug: string
