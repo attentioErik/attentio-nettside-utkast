@@ -48,9 +48,20 @@ export interface Config {
   tjenester: readonly {
     navn: string
     beskrivelse: string
-    ikon?: "wrench" | "bolt" | "hammer" | "paint" | "home" | "shield" | "clock" | "star"
+    ikon?: "wrench" | "bolt" | "hammer" | "paint" | "home" | "shield" | "clock" | "star" | "users" | "trending" | "leaf"
     bilde?: string
   }[]
+
+  omOss?: {
+    tittel?: string
+    tekst?: string[]
+    ctaTekst?: string
+    punkter?: readonly {
+      ikon?: "wrench" | "bolt" | "hammer" | "paint" | "home" | "shield" | "clock" | "star" | "users" | "trending" | "leaf"
+      tittel: string
+      tekst: string
+    }[]
+  }
 
   usps: readonly string[]
 

@@ -113,6 +113,29 @@ export const ArrowRightIcon = (props: IconProps) => (
   </svg>
 )
 
+export const UsersIcon = (props: IconProps) => (
+  <svg {...base} {...props} aria-hidden="true">
+    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+    <circle cx="9" cy="7" r="4" />
+    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+  </svg>
+)
+
+export const TrendingUpIcon = (props: IconProps) => (
+  <svg {...base} {...props} aria-hidden="true">
+    <path d="m22 7-8.5 8.5-5-5L2 17" />
+    <path d="M16 7h6v6" />
+  </svg>
+)
+
+export const LeafIcon = (props: IconProps) => (
+  <svg {...base} {...props} aria-hidden="true">
+    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" />
+    <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+  </svg>
+)
+
 export const tjenesteIcons = {
   wrench: WrenchIcon,
   bolt: BoltIcon,
@@ -122,4 +145,7 @@ export const tjenesteIcons = {
   shield: ShieldIcon,
   clock: ClockIcon,
   star: StarIcon,
+  users: UsersIcon,
+  trending: TrendingUpIcon,
+  leaf: LeafIcon,
 } as const

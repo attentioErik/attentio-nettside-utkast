@@ -2,6 +2,7 @@ import type { Config } from "@/types/config"
 import NavBar from "./NavBar"
 import Hero from "./Hero"
 import ServicesSection from "./ServicesSection"
+import AboutSection from "./AboutSection"
 import GallerySection from "./GallerySection"
 import TrustSection from "./TrustSection"
 import ContactSection from "./ContactSection"
@@ -29,6 +30,7 @@ export default function ClientShell({ config }: { config: Config }) {
       <main>
         <Hero config={config} />
         <ServicesSection config={config} />
+        <AboutSection config={config} />
         <GallerySection config={config} />
         <TrustSection config={config} />
         <ContactSection config={config} />

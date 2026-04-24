@@ -62,6 +62,22 @@ export const config = {
     "Forsikret hos Gjensidige",
   ],
 
+  // --- Om oss-seksjon (valgfritt – vises kun hvis omOss er satt) ---
+  // omOss: {
+  //   tittel: "Lokal ekspertise du kan stole på",
+  //   tekst: [
+  //     "Siden 1990 har vi levert kvalitetstjenester i Bergen.",
+  //     "Vi tilpasser oss ditt behov og leverer alltid til avtalt pris.",
+  //   ],
+  //   ctaTekst: "Kontakt oss i dag",
+  //   punkter: [
+  //     { ikon: "shield" as const, tittel: "Sikkerhet i fokus", tekst: "Alle oppdrag utføres etter gjeldende forskrifter." },
+  //     { ikon: "clock" as const, tittel: "Punktlig og pålitelig", tekst: "Vi overholder avtaler og leverer til rett tid." },
+  //     { ikon: "users" as const, tittel: "For alle kundetyper", tekst: "Privatpersoner, bedrifter og entreprenører." },
+  //     { ikon: "trending" as const, tittel: "Effektive løsninger", tekst: "Vi hjelper deg med å redusere kostnader." },
+  //   ],
+  // },
+
   // --- Valgfritt ---
   logo: "",
   herobildeSrc: "",  // URL (f.eks. fra src/lib/images.ts) eller blank
