@@ -6,6 +6,7 @@ import { config as lumiereBeauty } from "../../clients/lumiere-beauty/config"
 import { config as nordvindEnergi } from "../../clients/nordvind-energi/config"
 import { config as amMurBetong } from "../../clients/am-mur-betong/config"
 import { config as itreet } from "../../clients/itreet/config"
+import { config as urheimsElektrokompani } from "../../clients/urheims-elektrokompani/config"
 
 import { ArrowRightIcon, MapPinIcon } from "@/components/templates/Icons"
 import type { Config } from "@/types/config"
@@ -19,6 +20,7 @@ const klienter: Config[] = [
   nordvindEnergi,
   amMurBetong,
   itreet,
+  urheimsElektrokompani,
 ]
 
 export const metadata = {
