@@ -1,6 +1,7 @@
 /**
  * Sentralt register for alle klient-utkast + passord-logikk.
- * Importer hit når du legger til en ny klient.
+ * Legg til én import + én linje i CONFIGS når du oppretter et nytt utkast.
+ * page.tsx og portalen henter automatisk fra CONFIGS — ingen endringer der nødvendig.
  */
 
 import { config as straumeRoer } from "../../clients/straume-roer/config"
@@ -14,13 +15,10 @@ import { config as storliBilMaskin } from "../../clients/storli-bil-maskin/confi
 import { config as railaAs } from "../../clients/raila-as/config"
 import { config as tromsoVvs } from "../../clients/tromso-vvs/config"
 
-type ClientEntry = {
-  slug: string
-  firmanavn: string
-  passord: string
-}
+import type { Config } from "../types/config"
 
-const registry: readonly { slug: string; firmanavn: string; passord?: string }[] = [
+/** Alle klient-configs. Portalen og middleware henter herfra automatisk. */
+export const CONFIGS: readonly Config[] = [
   straumeRoer,
   lumiereBeauty,
   nordvindEnergi,
@@ -31,12 +29,18 @@ const registry: readonly { slug: string; firmanavn: string; passord?: string }[]
   storliBilMaskin,
   railaAs,
   tromsoVvs,
-] as const
+] as unknown as Config[]
 
-export const CLIENTS: readonly ClientEntry[] = registry.map((c) => ({
+type ClientEntry = {
+  slug: string
+  firmanavn: string
+  passord: string
+}
+
+export const CLIENTS: readonly ClientEntry[] = CONFIGS.map((c) => ({
   slug: c.slug,
   firmanavn: c.firmanavn,
-  passord: c.passord ?? `${c.slug}_26`,
+  passord: (c as Config & { passord?: string }).passord ?? `${c.slug}_26`,
 }))
 
 export function getClient(slug: string): ClientEntry | null {

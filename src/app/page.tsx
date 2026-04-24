@@ -1,29 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import { config as straumeRoer } from "../../clients/straume-roer/config"
-import { config as lumiereBeauty } from "../../clients/lumiere-beauty/config"
-import { config as nordvindEnergi } from "../../clients/nordvind-energi/config"
-import { config as amMurBetong } from "../../clients/am-mur-betong/config"
-import { config as itreet } from "../../clients/itreet/config"
-import { config as urheimsElektrokompani } from "../../clients/urheims-elektrokompani/config"
-import { config as mmHjemKontorservice } from "../../clients/mm-hjem-kontorservice/config"
-
+import { CONFIGS, CLIENTS } from "@/lib/clients"
 import { ArrowRightIcon, MapPinIcon } from "@/components/templates/Icons"
-import type { Config } from "@/types/config"
 import RemoveButton from "./RemoveButton"
+import CopyLinkButton from "./CopyLinkButton"
 
 const isDev = process.env.NODE_ENV === "development"
-
-const klienter: Config[] = [
-  straumeRoer,
-  lumiereBeauty,
-  nordvindEnergi,
-  amMurBetong,
-  itreet,
-  urheimsElektrokompani,
-  mmHjemKontorservice,
-]
 
 export const metadata = {
   title: "Attentio – Nettside-utkast",
@@ -31,6 +14,8 @@ export const metadata = {
 }
 
 export default function Home() {
+  const passordMap = Object.fromEntries(CLIENTS.map((c) => [c.slug, c.passord]))
+
   return (
     <div className="min-h-screen bg-slate-50">
       <header className="border-b border-slate-200 bg-white">
@@ -83,7 +68,7 @@ export default function Home() {
 
       <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {klienter.map((k) => (
+          {CONFIGS.map((k) => (
             <Link
               key={k.slug}
               href={`/${k.slug}`}
@@ -137,11 +122,9 @@ export default function Home() {
                   <span>{k.sted}</span>
                 </div>
 
-                <div className="mt-auto flex items-center justify-between pt-4 border-t border-slate-100">
-                  <span className="text-xs text-slate-400">
-                    /{k.slug}
-                  </span>
-                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-slate-900 transition-transform group-hover:translate-x-0.5">
+                <div className="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                  <CopyLinkButton slug={k.slug} passord={passordMap[k.slug]} />
+                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-slate-900 transition-transform group-hover:translate-x-0.5 flex-shrink-0">
                     Åpne utkast
                     <ArrowRightIcon className="w-4 h-4" />
                   </span>
@@ -155,7 +138,7 @@ export default function Home() {
       <footer className="border-t border-slate-200 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
           <p>
-            {klienter.length} utkast · Alle passordbeskyttet
+            {CONFIGS.length} utkast · Alle passordbeskyttet
           </p>
           <p>
             Laget av{" "}
