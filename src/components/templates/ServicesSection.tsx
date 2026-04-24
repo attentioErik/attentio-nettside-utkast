@@ -2,8 +2,15 @@ import Image from "next/image"
 import type { Config } from "@/types/config"
 import { tjenesteIcons, WrenchIcon } from "./Icons"
 
+function gridCols(n: number) {
+  if (n <= 2) return "grid-cols-1 sm:grid-cols-2"
+  if (n === 4) return "grid-cols-1 sm:grid-cols-2"
+  return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+}
+
 export default function ServicesSection({ config }: { config: Config }) {
   const harBilder = config.tjenester.some((t) => t.bilde)
+  const antall = config.tjenester.length
 
   return (
     <section id="tjenester" className="py-20 sm:py-28 px-4 sm:px-6 bg-white">
@@ -23,7 +30,7 @@ export default function ServicesSection({ config }: { config: Config }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className={`grid gap-5 ${gridCols(antall)}`}>
           {config.tjenester.map((tjeneste, i) => {
             const Icon = tjeneste.ikon
               ? tjenesteIcons[tjeneste.ikon]

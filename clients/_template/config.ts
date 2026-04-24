@@ -22,7 +22,7 @@ export const config = {
   primærfarge: "#1E40AF",
   accentfarge: "#EA580C",
 
-  // --- Tjenester (med ikon og beskrivelse) ---
+  // --- Tjenester (3–6 stk, grid tilpasses automatisk) ---
   tjenester: [
     {
       navn: "Tjeneste 1",
