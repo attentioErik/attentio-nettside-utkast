@@ -5,7 +5,7 @@ export const config = {
   underoverskrift: "Over 15 år erfaring med innvendig og utvendig oppussing, taktekking og totalrenovering i Innlandet.",
   bransje: "carpenter",
 
-  telefon: "",
+  telefon: "47 87 67 77",
   epost: "",
   adresse: "Gjøvik",
   sted: "Gjøvik",
@@ -14,8 +14,10 @@ export const config = {
   theme: "light" as "light" | "dark",
   designMode: "trust" as "trust" | "wow",
   heroVariant: "classic" as const,
-  primærfarge: "#64748B",
-  accentfarge: "#EA580C",
+  primærfarge: "#7A7470",
+  accentfarge: "#B07850",
+  fontHeading: "var(--font-playfair)",
+  fontBody: "var(--font-lora)",
 
   tjenester: [
     {
