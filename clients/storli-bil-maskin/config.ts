@@ -112,7 +112,7 @@ export const config = {
 
   logo: "",
   herobildeSrc:
-    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80",
+    "https://ucarecdn.com/12209093-1755-471a-b6c8-a13dd8569655/hf_20260424_103619_a254285b32924d2692f62ebde0f523cb.png",
   galleri: [] as readonly string[],
 
   anmeldelser: [
