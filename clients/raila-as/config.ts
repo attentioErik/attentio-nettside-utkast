@@ -13,7 +13,7 @@ export const config = {
 
   theme: "light" as "light" | "dark",
   designMode: "trust" as "trust" | "wow",
-  heroVariant: "classic" as const,
+  heroVariant: "image" as const,
   primærfarge: "#7A7470",
   accentfarge: "#B07850",
   fontHeading: "var(--font-playfair)",
@@ -71,7 +71,7 @@ export const config = {
   },
 
   logo: "",
-  herobildeSrc: "https://images.unsplash.com/photo-1572297794026-4e0b3a9e7a92?auto=format&fit=crop&w=1600&q=80",
+  herobildeSrc: "https://ucarecdn.com/fcbb3126-fa9f-4459-90a9-2cc9ab30912a/hf_20260424_105535_fd3d56fdec574ff7a76bdbe8fcf726a3.png",
   galleri: [] as readonly string[],
 
   anmeldelser: [
