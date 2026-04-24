@@ -22,6 +22,23 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
+  // Auto-unlock via ?p=passord i URL-en
+  const urlPassord = request.nextUrl.searchParams.get("p")
+  if (urlPassord === client.passord) {
+    const destination = request.nextUrl.clone()
+    destination.searchParams.delete("p")
+    const response = NextResponse.redirect(destination)
+    response.cookies.set({
+      name: COOKIE_NAME(slug),
+      value: client.passord,
+      path: "/",
+      httpOnly: true,
+      sameSite: "lax",
+      maxAge: 60 * 60 * 24 * 30,
+    })
+    return response
+  }
+
   const unlockUrl = request.nextUrl.clone()
   unlockUrl.pathname = `/unlock/${slug}`
   unlockUrl.search = ""
