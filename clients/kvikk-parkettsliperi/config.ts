@@ -5,7 +5,7 @@ export const config = {
   underoverskrift: "4.9 stjerner på 801 evalueringer i Mitt Anbud. Vi slipper, legger og behandler gulv – raskt, ryddig og til fastpris.",
   bransje: "flooring",
 
-  telefon: "",
+  telefon: "+47 90 84 02 20",
   epost: "",
   adresse: "Oslo og Akershus",
   sted: "Oslo",
@@ -14,8 +14,8 @@ export const config = {
   theme: "light" as "light" | "dark",
   designMode: "trust" as "trust" | "wow",
   heroVariant: "image" as const,
-  primærfarge: "#EA580C",
-  accentfarge: "#2563EB",
+  primary: "#7B5040",
+  accent: "#C8835A",
   fontHeading: "var(--font-space)",
   fontBody: "var(--font-dm-sans)",
 
