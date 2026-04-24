@@ -15,7 +15,7 @@ export default function HeroFlickerGrid({ config }: { config: Config }) {
         className="absolute inset-0 z-0 [mask-image:radial-gradient(650px_circle_at_center,white,transparent)]"
         squareSize={4}
         gridGap={6}
-        color={config.primærfarge}
+        color={config.primary}
         maxOpacity={0.35}
         flickerChance={0.12}
       />

@@ -13,8 +13,8 @@ export const config = {
 
   theme: "light" as "light" | "dark",
   designMode: "trust" as "trust" | "wow",
-  primærfarge: "#1E40AF",
-  accentfarge: "#EA580C",
+  primary: "#1E40AF",
+  accent: "#EA580C",
 
   tjenester: [
     {

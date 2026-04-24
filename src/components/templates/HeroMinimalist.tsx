@@ -23,7 +23,7 @@ export default function HeroMinimalist({ config }: { config: Config }) {
       overlayText={{ part1: parts.part1, part2: parts.part2 }}
       socialLinks={[]}
       locationText={config.sted}
-      circleColor={config.primærfarge}
+      circleColor={config.primary}
       hideHeader
       hideFooter={false}
     />

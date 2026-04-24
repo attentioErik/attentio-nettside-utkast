@@ -19,8 +19,8 @@ export const config = {
   // --- Visuell identitet ---
   theme: "light" as "light" | "dark",
   designMode: "trust" as "trust" | "wow",   // "trust" = lokal service, "wow" = skjønnhet/premium
-  primærfarge: "#1E40AF",
-  accentfarge: "#EA580C",
+  primary: "#1E40AF",
+  accent: "#EA580C",
 
   // --- Tjenester (3–6 stk, grid tilpasses automatisk) ---
   tjenester: [

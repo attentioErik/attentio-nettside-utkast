@@ -14,8 +14,8 @@ export const config = {
   theme: "light" as "light" | "dark",
   designMode: "wow" as "trust" | "wow",
   heroVariant: "aero" as "classic" | "image" | "aurora" | "retrogrid" | "flicker" | "aero",
-  primærfarge: "#059669",
-  accentfarge: "#84cc16",
+  primary: "#059669",
+  accent: "#84cc16",
 
   tjenester: [
     {

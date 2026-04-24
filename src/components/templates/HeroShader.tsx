@@ -12,15 +12,15 @@ import { PhoneIcon, ArrowRightIcon } from "./Icons"
 export default function HeroShader({ config }: { config: Config }) {
   const colors = [
     "#000000",
-    config.primærfarge,
+    config.primary,
     "#ffffff",
     "#1e1b4b",
-    config.accentfarge,
+    config.accent,
   ] as const
   const wireframeColors = [
     "#000000",
     "#ffffff",
-    config.primærfarge,
+    config.primary,
     "#000000",
   ] as const
 
@@ -44,7 +44,7 @@ export default function HeroShader({ config }: { config: Config }) {
                 >
                   <span
                     className="h-1.5 w-1.5 animate-pulse rounded-full"
-                    style={{ backgroundColor: config.accentfarge }}
+                    style={{ backgroundColor: config.accent }}
                     aria-hidden="true"
                   />
                   {config.sted} · {config.firmanavn}

@@ -22,7 +22,7 @@ export default function HeroFashion({ config }: { config: Config }) {
           <div className="relative md:order-2">
             <div
               className="absolute -top-10 -left-10 -z-10 h-72 w-72 rounded-full opacity-30 blur-3xl"
-              style={{ backgroundColor: config.primærfarge }}
+              style={{ backgroundColor: config.primary }}
             />
             {config.herobildeSrc && (
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-2xl">

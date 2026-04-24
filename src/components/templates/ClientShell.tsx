@@ -18,8 +18,8 @@ export default function ClientShell({ config }: { config: Config }) {
     <div
       style={
         {
-          "--primary": config.primærfarge,
-          "--accent": config.accentfarge,
+          "--primary": config.primary,
+          "--accent": config.accent,
           ...(config.fontHeading && { "--font-heading": config.fontHeading }),
           ...(config.fontBody && { "--font-body": config.fontBody }),
         } as React.CSSProperties

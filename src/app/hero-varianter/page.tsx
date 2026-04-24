@@ -28,8 +28,8 @@ const baseDemo: Config = {
   adresse: "Bergen",
   sted: "Bergen",
   theme: "light",
-  primærfarge: "#EC4899",
-  accentfarge: "#8B5CF6",
+  primary: "#EC4899",
+  accent: "#8B5CF6",
   tjenester: [],
   usps: ["Rask levering", "Lokal forankring", "Fastpris"],
   stats: [
@@ -60,8 +60,8 @@ const energyDemo: Partial<Config> = {
   tagline: "Bærekraftige løsninger for en bedre fremtid",
   underoverskrift:
     "Vi hjelper bedrifter og lokalsamfunn å blomstre i en lavkarbon-verden gjennom skreddersydde løsninger innen fornybar energi.",
-  primærfarge: "#059669",
-  accentfarge: "#84cc16",
+  primary: "#059669",
+  accent: "#84cc16",
   herobildeSrc:
     "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1920&q=80",
 }
@@ -70,8 +70,8 @@ const agencyDemo: Partial<Config> = {
   tagline: "Lager digitale opplevelser som betyr noe",
   underoverskrift:
     "Vi designer grensesnitt som kombinerer estetikk og funksjonalitet – opplevelser brukere elsker og bedrifter vokser på.",
-  primærfarge: "#f59e0b",
-  accentfarge: "#fbbf24",
+  primary: "#f59e0b",
+  accent: "#fbbf24",
 }
 
 type HeroComp = React.ComponentType<{ config: Config }>

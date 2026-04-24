@@ -77,8 +77,8 @@ export default function Home() {
               <div
                 className="relative aspect-[16/10] overflow-hidden"
                 style={{
-                  backgroundColor: k.primærfarge,
-                  backgroundImage: `linear-gradient(135deg, ${k.primærfarge} 0%, ${k.accentfarge} 100%)`,
+                  backgroundColor: k.primary,
+                  backgroundImage: `linear-gradient(135deg, ${k.primary} 0%, ${k.accent} 100%)`,
                 }}
               >
                 {k.herobildeSrc ? (

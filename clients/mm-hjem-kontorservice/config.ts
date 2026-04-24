@@ -15,8 +15,8 @@ export const config = {
   theme: "light" as "light" | "dark",
   designMode: "trust" as "trust" | "wow",
   heroVariant: "classic" as const,
-  primærfarge: "#EA580C",
-  accentfarge: "#2563EB",
+  primary: "#EA580C",
+  accent: "#2563EB",
 
   tjenester: [
     {

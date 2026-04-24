@@ -45,13 +45,13 @@ export default function HeroAurora({ config }: { config: Config }) {
           </div>
 
           <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-white mb-6">
-            <SparklesText sparklesCount={6} colors={{ first: "#ffffff", second: config.accentfarge }}>
+            <SparklesText sparklesCount={6} colors={{ first: "#ffffff", second: config.accent }}>
               <AuroraText
                 colors={[
-                  config.primærfarge,
-                  config.accentfarge,
+                  config.primary,
+                  config.accent,
                   "#ffffff",
-                  config.primærfarge,
+                  config.primary,
                 ]}
               >
                 {config.tagline}

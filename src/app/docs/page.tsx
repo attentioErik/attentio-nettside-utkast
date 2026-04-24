@@ -107,7 +107,7 @@ npm run dev          # http://localhost:3000`}</Pre>
             ["theme", "light / dark", "✓", ""],
             ["designMode", "trust / wow", "–", "Se design-modi"],
             ["heroVariant", "string", "–", "Se hero-varianter"],
-            ["primærfarge, accentfarge", "hex", "✓", "Brand-farger"],
+            ["primary, accent", "hex", "✓", "Brand-farger"],
             ["tjenester", "array", "✓", "3 objekter {navn, beskrivelse, ikon, bilde?}"],
             ["usps", "string[]", "✓", "3 korte salgsargumenter"],
             ["stats", "array", "–", "3 objekter {verdi, etikett}"],
@@ -139,8 +139,8 @@ npm run dev          # http://localhost:3000`}</Pre>
     body: (
       <>
         <p>
-          Alle heroes bruker <Code>config.primærfarge</Code> +{" "}
-          <Code>config.accentfarge</Code> automatisk. Live preview:{" "}
+          Alle heroes bruker <Code>config.primary</Code> +{" "}
+          <Code>config.accent</Code> automatisk. Live preview:{" "}
           <Link href="/hero-varianter" className="text-pink-700 underline underline-offset-4 hover:text-pink-800">
             /hero-varianter
           </Link>

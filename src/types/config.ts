@@ -37,8 +37,8 @@ export interface Config {
   theme: "light" | "dark"
   designMode?: DesignMode
   heroVariant?: HeroVariant
-  primærfarge: string
-  accentfarge: string
+  primary: string
+  accent: string
 
   /** Overstyrer `--font-heading` for denne klienten. F.eks. `"var(--font-playfair)"`. */
   fontHeading?: string
