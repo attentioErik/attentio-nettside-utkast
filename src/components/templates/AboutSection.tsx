@@ -13,7 +13,10 @@ export default function AboutSection({ config }: { config: Config }) {
   return (
     <section
       id="om-oss"
-      className="py-20 sm:py-28 px-4 sm:px-6 bg-[#0f1117]"
+      className="py-20 sm:py-28 px-4 sm:px-6"
+      style={{
+        background: "color-mix(in srgb, var(--primary) 10%, #0a0a0a)",
+      }}
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
@@ -22,7 +25,7 @@ export default function AboutSection({ config }: { config: Config }) {
           <div>
             <p
               className="text-sm font-semibold uppercase tracking-widest mb-4"
-              style={{ color: "var(--accent)" }}
+              style={{ color: "var(--primary)" }}
             >
               Om oss
             </p>
@@ -33,7 +36,7 @@ export default function AboutSection({ config }: { config: Config }) {
             {tekst.length > 0 && (
               <div className="space-y-5 mb-10">
                 {tekst.map((avsnitt, i) => (
-                  <p key={i} className="text-slate-300 leading-relaxed text-base sm:text-lg">
+                  <p key={i} className="text-white/70 leading-relaxed text-base sm:text-lg">
                     {avsnitt}
                   </p>
                 ))}
@@ -43,7 +46,7 @@ export default function AboutSection({ config }: { config: Config }) {
             <a
               href="#kontakt"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm transition-all hover:brightness-110 active:scale-95"
-              style={{ backgroundColor: "var(--accent)", color: "#fff" }}
+              style={{ backgroundColor: "var(--primary)", color: "#fff" }}
             >
               {ctaTekst}
               <ArrowRightIcon className="w-4 h-4" />
@@ -58,24 +61,28 @@ export default function AboutSection({ config }: { config: Config }) {
                 return (
                   <div
                     key={i}
-                    className="flex items-start gap-4 p-5 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/8 transition-colors"
+                    className="flex items-start gap-4 p-5 rounded-2xl transition-colors"
+                    style={{
+                      background: "color-mix(in srgb, var(--primary) 8%, rgba(255,255,255,0.04))",
+                      border: "1px solid color-mix(in srgb, var(--primary) 20%, rgba(255,255,255,0.08))",
+                    }}
                   >
                     {Icon && (
                       <div
                         className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                        style={{ backgroundColor: "color-mix(in srgb, var(--accent) 20%, transparent)" }}
+                        style={{
+                          backgroundColor: "color-mix(in srgb, var(--primary) 25%, transparent)",
+                          color: "var(--primary)",
+                        }}
                       >
-                        <Icon
-                          className="w-5 h-5"
-                          style={{ color: "var(--accent)" }}
-                        />
+                        <Icon className="w-5 h-5" />
                       </div>
                     )}
                     <div className="min-w-0">
                       <h3 className="font-heading font-semibold text-white text-base mb-1">
                         {punkt.tittel}
                       </h3>
-                      <p className="text-slate-400 text-sm leading-relaxed">
+                      <p className="text-white/55 text-sm leading-relaxed">
                         {punkt.tekst}
                       </p>
                     </div>
