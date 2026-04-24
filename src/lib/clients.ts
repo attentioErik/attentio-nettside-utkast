@@ -15,6 +15,7 @@ import { config as storliBilMaskin } from "../../clients/storli-bil-maskin/confi
 import { config as railaAs } from "../../clients/raila-as/config"
 import { config as tromsoVvs } from "../../clients/tromso-vvs/config"
 import { config as kvikkParkettsliperi } from "../../clients/kvikk-parkettsliperi/config"
+import { config as olareanBygg } from "../../clients/olarean-bygg/config"
 
 import type { Config } from "../types/config"
 
@@ -31,6 +32,7 @@ export const CONFIGS: readonly Config[] = [
   railaAs,
   tromsoVvs,
   kvikkParkettsliperi,
+  olareanBygg,
 ] as unknown as Config[]
 
 type ClientEntry = {
