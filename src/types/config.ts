@@ -54,7 +54,7 @@ export interface Config {
 
   omOss?: {
     tittel?: string
-    tekst?: string[]
+    tekst?: readonly string[]
     ctaTekst?: string
     punkter?: readonly {
       ikon?: "wrench" | "bolt" | "hammer" | "paint" | "home" | "shield" | "clock" | "star" | "users" | "trending" | "leaf"
