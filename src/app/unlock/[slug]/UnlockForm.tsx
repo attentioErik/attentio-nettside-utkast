@@ -26,7 +26,7 @@ export default function UnlockForm({ slug }: { slug: string }) {
     }
 
     startTransition(() => {
-      router.replace(`/${slug}`)
+      router.replace(slug === "portal" ? "/" : `/${slug}`)
       router.refresh()
     })
   }

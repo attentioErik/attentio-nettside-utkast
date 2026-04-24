@@ -8,8 +8,9 @@ export default async function UnlockPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const client = getClient(slug)
-  if (!client) return notFound()
+  const isPortal = slug === "portal"
+  const client = isPortal ? null : getClient(slug)
+  if (!isPortal && !client) return notFound()
 
   return (
     <main className="min-h-screen flex flex-col bg-slate-950 text-white">
@@ -23,17 +24,23 @@ export default async function UnlockPage({
             </div>
 
             <h1 className="font-heading text-3xl sm:text-4xl font-bold mb-4 tracking-tight">
-              Nettside-utkast
+              {isPortal ? "Utkast-portal" : "Nettside-utkast"}
             </h1>
             <p className="text-white/70 text-base leading-relaxed">
-              Dette er et utkast laget for{" "}
-              <span className="font-semibold text-white">{client.firmanavn}</span>.
-              Siden er passordbeskyttet og kun ment for mottakeren.
+              {isPortal ? (
+                "Denne portalen er kun for Attentio-teamet. Skriv inn passordet for å se alle utkast."
+              ) : (
+                <>
+                  Dette er et utkast laget for{" "}
+                  <span className="font-semibold text-white">{client!.firmanavn}</span>.
+                  Siden er passordbeskyttet og kun ment for mottakeren.
+                </>
+              )}
             </p>
           </div>
 
           <div className="rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-6 sm:p-8 shadow-2xl">
-            <UnlockForm slug={client.slug} />
+            <UnlockForm slug={slug} />
           </div>
 
           <p className="mt-8 text-center text-sm text-white/50">
