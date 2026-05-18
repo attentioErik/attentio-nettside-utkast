@@ -5,6 +5,8 @@ import ServicesSection from "./ServicesSection"
 import AboutSection from "./AboutSection"
 import GallerySection from "./GallerySection"
 import TrustSection from "./TrustSection"
+import BlogSection from "./BlogSection"
+import NewsletterSection from "./NewsletterSection"
 import ContactSection from "./ContactSection"
 import SiteFooter from "./SiteFooter"
 
@@ -33,6 +35,8 @@ export default function ClientShell({ config }: { config: Config }) {
         <AboutSection config={config} />
         <GallerySection config={config} />
         <TrustSection config={config} />
+        <BlogSection config={config} />
+        <NewsletterSection config={config} />
         <ContactSection config={config} />
       </main>
       <SiteFooter config={config} />

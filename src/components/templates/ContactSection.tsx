@@ -1,7 +1,7 @@
 "use client"
 
 import type { Config } from "@/types/config"
-import { PhoneIcon, MailIcon, MapPinIcon, ClockIcon } from "./Icons"
+import { PhoneIcon, MailIcon, MapPinIcon, ClockIcon, InstagramIcon, FacebookIcon } from "./Icons"
 
 export default function ContactSection({ config }: { config: Config }) {
   return (
@@ -52,6 +52,50 @@ export default function ContactSection({ config }: { config: Config }) {
                 verdi={config.apningstider}
               />
             )}
+            {config.sosiale &&
+              (config.sosiale.instagram || config.sosiale.facebook) && (
+                <div className="p-5 rounded-xl bg-white border border-slate-200">
+                  <div className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-3">
+                    Følg oss
+                  </div>
+                  <div className="flex items-center gap-3">
+                    {config.sosiale.instagram && (
+                      <a
+                        href={config.sosiale.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg font-semibold text-sm transition-all hover:-translate-y-0.5"
+                        style={{
+                          backgroundColor:
+                            "color-mix(in srgb, var(--primary) 10%, white)",
+                          color: "var(--primary)",
+                        }}
+                      >
+                        <InstagramIcon className="w-5 h-5" />
+                        Instagram
+                      </a>
+                    )}
+                    {config.sosiale.facebook && (
+                      <a
+                        href={config.sosiale.facebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Facebook"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg font-semibold text-sm transition-all hover:-translate-y-0.5"
+                        style={{
+                          backgroundColor:
+                            "color-mix(in srgb, var(--primary) 10%, white)",
+                          color: "var(--primary)",
+                        }}
+                      >
+                        <FacebookIcon className="w-5 h-5" />
+                        Facebook
+                      </a>
+                    )}
+                  </div>
+                </div>
+              )}
           </div>
 
           <form

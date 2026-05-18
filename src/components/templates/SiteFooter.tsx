@@ -1,5 +1,5 @@
 import type { Config } from "@/types/config"
-import { PhoneIcon, MailIcon, MapPinIcon } from "./Icons"
+import { PhoneIcon, MailIcon, MapPinIcon, InstagramIcon, FacebookIcon } from "./Icons"
 
 export default function SiteFooter({ config }: { config: Config }) {
   return (
@@ -70,6 +70,33 @@ export default function SiteFooter({ config }: { config: Config }) {
                 <span>{config.adresse}</span>
               </li>
             </ul>
+
+            {config.sosiale && (config.sosiale.instagram || config.sosiale.facebook) && (
+              <div className="flex items-center gap-3 mt-6">
+                {config.sosiale.instagram && (
+                  <a
+                    href={config.sosiale.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    className="w-10 h-10 rounded-lg flex items-center justify-center bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-colors"
+                  >
+                    <InstagramIcon className="w-5 h-5" />
+                  </a>
+                )}
+                {config.sosiale.facebook && (
+                  <a
+                    href={config.sosiale.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    className="w-10 h-10 rounded-lg flex items-center justify-center bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-colors"
+                  >
+                    <FacebookIcon className="w-5 h-5" />
+                  </a>
+                )}
+              </div>
+            )}
           </div>
         </div>
 

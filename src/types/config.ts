@@ -72,6 +72,27 @@ export interface Config {
 
   trustBadges?: readonly string[]
 
+  /** Sosiale medier – vises i footer og kontakt-seksjon hvis satt. */
+  sosiale?: {
+    instagram?: string
+    facebook?: string
+  }
+
+  /** Nyhetsbrev-seksjon – vises kun hvis satt. */
+  nyhetsbrev?: {
+    tittel?: string
+    tekst?: string
+  }
+
+  /** Blogg/nyheter-seksjon – vises kun hvis satt. */
+  blogg?: readonly {
+    tittel: string
+    utdrag: string
+    dato: string
+    bilde?: string
+    kategori?: string
+  }[]
+
   logo: string
   herobildeSrc: string
   galleri?: readonly string[]
